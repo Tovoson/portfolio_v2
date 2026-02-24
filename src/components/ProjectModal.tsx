@@ -21,7 +21,7 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -52,7 +52,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent md:bg-gradient-to-r" />
+            <div className="absolute inset-0 bg-linear-to-t from-background-dark via-transparent to-transparent md:bg-gradient-to-r" />
           </div>
 
           {/* Content Section */}

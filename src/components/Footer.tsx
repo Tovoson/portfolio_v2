@@ -11,7 +11,7 @@ export default function Footer() {
           <span className="font-black text-sm uppercase tracking-widest text-white">DevExpert AI © 2026</span>
         </div>
         <div className="flex gap-8">
-          <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="#">
+          <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/Tovoson">
             <LinkIcon className="size-4" /> GitHub
           </a>
           <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="#">

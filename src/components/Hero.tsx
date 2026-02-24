@@ -30,11 +30,13 @@ export default function Hero() {
             Bridging the gap between complex data architectures, LLM orchestration, and seamless user experiences.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-primary hover:bg-primary/90 text-white h-14 px-8 rounded-xl font-bold transition-all shadow-xl shadow-primary/30 flex items-center gap-2 cursor-pointer">
+            <a href="#projects" className="bg-primary hover:bg-primary/90 text-white h-14 px-8 rounded-xl font-bold transition-all shadow-xl shadow-primary/30 flex items-center gap-2 cursor-pointer">
               View Projects <ArrowRight className="size-5" />
-            </button>
+            </a>
             <button className="glass-card hover:bg-white/5 border h-14 px-8 rounded-xl font-bold transition-all border-primary/5 text-white cursor-pointer">
+              <a href="#stack">
               Technical Stack
+              </a>
             </button>
           </div>
         </motion.div>
@@ -49,7 +51,7 @@ export default function Hero() {
               className="w-full h-full rounded-2xl bg-cover bg-center" 
               style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGwdVUs2BTnfArKcjhwzljBnnrKknYc9ckWZs3AoCLBAQCpsgnGS5MW7jNpnwDzUAJXMU4XLNOfth777x-8aKjHPmt8jtUFcczEdzek516FOl1DtY0fDz8ulJfkfS_cYRLhni3syiNf0-Ua_noOvhcVacwvevb-1UAt-b9PPQBtFwQmyWB4iy4rJbSwoLRC4-RR4ASqTCKgi5I4DMRg1q8iqqyRu_NsP_yF4MQUKSaIzCxLQySh5pZWEudkaGi1cfILbc05w1BuTDJ')" }}
             ></div>
-            <div className="absolute bottom-10 left-10 glass-card p-6 rounded-2xl border border-white/20 border-primary/5">
+            <div className="absolute bottom-10 left-10 glass-card p-6 rounded-2xl border border-white/20">
               <div className="flex items-center gap-4">
                 <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center">
                   <BarChart3 className="text-primary size-6" />
