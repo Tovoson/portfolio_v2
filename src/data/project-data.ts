@@ -1,23 +1,31 @@
 import { Project } from "../Types/Project-type";
+import docuchat from "../../assets/images/docuchat.png"
+import app_mobile from "@/assets/images/application-mobile.png"
+import zn from "@/assets/images/interface_zeronotify.png"
+import portfolio from "@/assets/images/portfolio.png"
+import smart_organizer from "@/assets/images/SO.png"
 
 export const projects: Project[] = [
   {
-    title: "Real-time AI Analyst",
+    title: "DocuChat",
     description:
-      "A distributed RAG system processing millions of documents with sub-second latency for enterprise financial data.",
+      "DocuChat is a **RAG (Retrieval-Augmented Generation)** system that allows you to interact intelligently with your documents. Import your files, index them in a vector database, and chat with their content in real time.",
     longDescription:
-      "This project involved architecting a highly scalable Retrieval-Augmented Generation (RAG) system. It utilizes a distributed vector database to manage embeddings for millions of documents, providing sub-second query latency. The system is designed to handle complex financial data, offering real-time insights and automated reporting for enterprise clients.",
+      "DocuChat is a complete RAG pipeline built with modern technologies. It allows users to upload documents (PDF, TXT, DOCX, etc.), which are then chunked, embedded using Google's Gemini API, and stored in a PostgreSQL database with pgvector extension. The backend, built with Express.js, handles file processing and vector similarity searches. The frontend, developed in React, provides a seamless chat interface where users can ask questions about their documents and receive instant, context-aware answers.",
     tags: ["AI Engineering", "Vector DB"],
     techStack: [
       "React",
-      "Python",
-      "FastAPI",
-      "Pinecone",
-      "OpenAI API",
-      "Docker",
+      "Express",
+      "Google Gemini API",
+      "Postgresql",
+      "pgvector",
+      "LangChain"
     ],
-    date: "Jan 2024 - Present",
-    image: "https://picsum.photos/seed/analytics/800/600",
+    date: "Fev 2026 - Present",
+    image: docuchat,
+    lienBackend: "https://github.com/Tovoson/docuchat_backend",
+    lienFrontend: "https://github.com/Tovoson/docuchat_frontend",
+    lienProd: "https://docuchat-frontend-eight.vercel.app/",
   },
   {
     title: "ENI Pedagogical Management",
@@ -27,7 +35,7 @@ export const projects: Project[] = [
       "This project was designed to streamline pedagogical processes at ENI. It features a React frontend and a Django backend, communicating via a REST API. The system manages student records, course schedules, and academic results efficiently using a MySQL database.",
     tags: ["Web Site", "Education"],
     techStack: ["React", "Django", "REST API", "MySQL"],
-    date: "2023",
+    date: "2024",
     image: "https://picsum.photos/seed/university/800/600",
     lienBackend: "https://github.com/Tovoson/GestionPedagogiqueBackend",
     lienFrontend: "https://github.com/Tovoson/GestionPedagogique",
@@ -41,7 +49,7 @@ export const projects: Project[] = [
     tags: ["Mobile App", "Real Estate"],
     techStack: ["React Native", "TypeScript", "Django", "MySQL", "REST API"],
     date: "2023",
-    image: "https://picsum.photos/seed/apartment/800/600",
+    image: app_mobile,
     lienBackend: "https://github.com/Tovoson/gererapp",
     lienFrontend: "https://github.com/Tovoson/location_apps",
   },
@@ -81,8 +89,8 @@ export const projects: Project[] = [
       "Sequelize",
       "Gammu",
     ],
-    date: "2022",
-    image: "https://picsum.photos/seed/server/800/600",
+    date: "juin 2025 - nov 2025",
+    image: zn,
     lienBackend: "https://github.com/Tovoson/zeronotify/tree/master/backend",
     lienFrontend: "https://github.com/Tovoson/ZeroNotifyFrontend",
   },
@@ -93,11 +101,11 @@ export const projects: Project[] = [
     longDescription:
       "This portfolio was built using React and Tailwind CSS to provide a fast, responsive, and visually appealing platform for showcasing my projects. It features smooth animations and a clean layout to highlight my technical expertise.",
     tags: ["Web App", "Portfolio"],
-    techStack: ["React", "Tailwind CSS", "Motion"],
-    date: "2024",
-    image: "https://picsum.photos/seed/creative/800/600",
-    lienFrontend: "https://github.com/Tovoson/ZeroNotifyFrontend",
-    lienProd: "https://portfolio-tovo.vercel.app/",
+    techStack: ["React", "Tailwind CSS", "Motion", "Typescript"],
+    date: "2026 - Present",
+    image: portfolio,
+    lienFrontend: "https://github.com/Tovoson/portfolio_v2",
+    lienProd: "#",
   },
   {
     title: "Smart Organizer Pro AI",
@@ -107,7 +115,9 @@ export const projects: Project[] = [
       "Smart Organizer Pro AI is a desktop automation tool designed to keep your folders tidy. Inspired by µTorrent's aesthetic, it uses Scikit-Learn to learn from your habits and suggest optimal file categories. It features real-time monitoring with the watchdog library, a custom rule engine for keyword-based sorting, and a modern GUI built with CustomTkinter. It also includes a robust undo system and an automatic cleaning mode.",
     tags: ["Desktop App", "AI/ML"],
     techStack: ["Python", "Scikit-Learn", "CustomTkinter", "Watchdog"],
-    date: "2024",
-    image: "https://picsum.photos/seed/software/800/600",
+    date: "2026",
+    image: smart_organizer,
+    lienBackend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
+    lienFrontend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
   },
 ];
