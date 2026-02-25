@@ -1,20 +1,35 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Expertise from './components/Expertise';
-import TechStack from './components/TechStack';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import LoadingScreen from './components/LoadingScreen';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
+import { useState, useEffect, useRef } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AnimatePresence } from "motion/react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Expertise from "./components/Expertise";
+import TechStack from "./components/TechStack";
+import Projects from "./components/Projects";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import { getPosts } from "./test";
+import { trackVisit } from "./utils/addData";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
+
+  const hasTracked = useRef(false);
+  useEffect(() => {
+    if (!hasTracked.current) {
+      trackVisit();
+      hasTracked.current = true;
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background-dark">

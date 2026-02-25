@@ -27,24 +27,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
-
-interface Stats {
-  totalVisits: number;
-  uniqueVisitors: number;
-  avgDuration: string;
-  newMessages: number;
-  visitsTrend: Array<{ name: string; value: number }>;
-  deviceDistribution: Array<{ name: string; value: number }>;
-  recentVisitors: Array<{
-    id: string;
-    date: string;
-    time: string;
-    location: string;
-    browser: string;
-    page: string;
-    duration: string;
-  }>;
-}
+import { Stats } from "../Types/Project-type";
 
 const INITIAL_STATS: Stats = {
   totalVisits: 12345,
