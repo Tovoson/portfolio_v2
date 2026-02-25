@@ -115,7 +115,7 @@ export const projects: Project[] = [
       "Smart Organizer Pro AI is a desktop automation tool designed to keep your folders tidy. Inspired by µTorrent's aesthetic, it uses Scikit-Learn to learn from your habits and suggest optimal file categories. It features real-time monitoring with the watchdog library, a custom rule engine for keyword-based sorting, and a modern GUI built with CustomTkinter. It also includes a robust undo system and an automatic cleaning mode.",
     tags: ["Desktop App", "AI/ML"],
     techStack: ["Python", "Scikit-Learn", "CustomTkinter", "Watchdog"],
-    date: "2026",
+    date: "2026 - Present",
     image: smart_organizer,
     lienBackend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
     lienFrontend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
