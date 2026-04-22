@@ -17,8 +17,8 @@ import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import { getPosts } from "./test";
-import { trackVisit } from "./utils/addData";
+//import { getPosts } from "./test";
+//import { trackVisit } from "./utils/addData";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +26,7 @@ function Portfolio() {
   const hasTracked = useRef(false);
   useEffect(() => {
     if (!hasTracked.current) {
-      trackVisit();
+      //trackVisit();
       hasTracked.current = true;
     }
   }, []);

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function LoadingScreen({ onComplete }: { onComplete: () => void, key?: string }) {
   const [text, setText] = useState('');
-  const fullText = '> Initializing DevExpert AI...';
+  const fullText = '> Initializing Portfolio...';
   
   useEffect(() => {
     let index = 0;
