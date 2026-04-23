@@ -28,6 +28,8 @@ import {
   Cell,
 } from "recharts";
 import { Stats } from "../Types/Project-type";
+import { useAuthStore } from "../store/useAdminStore";
+import { useShallow } from "zustand/shallow";
 
 const INITIAL_STATS: Stats = {
   totalVisits: 12345,
@@ -40,50 +42,17 @@ const INITIAL_STATS: Stats = {
 };
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState<Stats>(INITIAL_STATS);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-  //const user = JSON.parse(localStorage.getItem('admin_user') || '{}');
-  const user = {
-    name: "Admin",
-    role: "Admin",
-  };
-
-  useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    //if (!token) {
-    //navigate('/admin');
-    //return;
-    //}
-
-    // fetch('/api/admin/stats')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setStats(data);
-    //     setLoading(false);
-    //   });
-    setLoading(false);
-  }, [navigate]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("admin_token");
-    localStorage.removeItem("admin_user");
-    navigate("/admin");
-  };
-
-  if (loading)
-    return (
-      <div className="min-h-screen bg-[#0a0a0b] flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="size-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-          <p className="text-slate-500 font-mono text-sm tracking-widest uppercase">
-            Loading Systems...
-          </p>
-        </div>
-      </div>
-    );
-
+  const { user, signOut } = useAuthStore(
+    useShallow((state) => ({ user: state.user, signOut: state.signOut }))
+  )
   const COLORS = ["#d4af35", "#2a2a2a", "#1a1a1a"];
+  const [stats, setStats] = useState(INITIAL_STATS)
+  const navigate = useNavigate()
+
+  const onLogOut = () =>{
+    signOut()
+    navigate("/admin")
+  }
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-slate-300 font-sans">
@@ -102,12 +71,12 @@ export default function AdminDashboard() {
             <input
               type="text"
               placeholder="Search analytics..."
-              className="bg-white/[0.03] border border-white/10 rounded-xl pl-12 pr-4 py-2.5 text-sm w-64 focus:border-primary outline-none transition-all"
+              className="bg-white/3 border border-white/10 rounded-xl pl-12 pr-4 py-2.5 text-sm w-64 focus:border-primary outline-none transition-all"
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="p-2.5 bg-white/[0.03] border border-white/10 rounded-xl hover:bg-white/5 transition-colors relative">
+            <button className="p-2.5 bg-white/3 border border-white/10 rounded-xl hover:bg-white/5 transition-colors relative">
               <Bell className="size-5 text-slate-400" />
               <span className="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-[#0a0a0b]" />
             </button>
@@ -117,14 +86,14 @@ export default function AdminDashboard() {
             <div className="flex items-center gap-4">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-bold text-white leading-none">
-                  {user.name}
+                  {user.email}
                 </p>
                 <p className="text-[10px] text-slate-500 font-medium uppercase tracking-widest mt-1">
-                  {user.role}
+                  {user.email}
                 </p>
               </div>
               <button
-                onClick={handleLogout}
+                onClick={onLogOut}
                 className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all group"
               >
                 <LogOut className="size-5 text-primary group-hover:scale-110 transition-transform" />
@@ -172,7 +141,7 @@ export default function AdminDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="glass-card p-6 rounded-2xl border border-white/5 bg-white/[0.02] relative overflow-hidden group"
+              className="glass-card p-6 rounded-2xl border border-white/5 bg-white/2 relative overflow-hidden group"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="space-y-1">
@@ -204,7 +173,7 @@ export default function AdminDashboard() {
         {/* Charts Row */}
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Traffic Chart */}
-          <div className="lg:col-span-2 glass-card p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
+          <div className="lg:col-span-2 glass-card p-8 rounded-3xl border border-white/5 bg-white/2">
             <div className="flex items-center justify-between mb-10">
               <div className="space-y-1">
                 <h3 className="text-lg font-bold text-white">
@@ -215,7 +184,7 @@ export default function AdminDashboard() {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
                   <Filter className="size-3.5" />
                   Filtrer par date
                   <ChevronDown className="size-3.5" />
@@ -272,16 +241,16 @@ export default function AdminDashboard() {
           </div>
 
           {/* Device Distribution */}
-          <div className="glass-card p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
+          <div className="glass-card p-8 rounded-3xl border border-white/5 bg-white/2">
             <div className="flex items-center justify-between mb-10">
               <h3 className="text-lg font-bold text-white">
                 Répartition par appareil
               </h3>
               <div className="flex gap-2">
-                <button className="p-2 bg-white/[0.03] border border-white/10 rounded-lg hover:bg-white/5">
+                <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
                   <Filter className="size-3.5" />
                 </button>
-                <button className="p-2 bg-white/[0.03] border border-white/10 rounded-lg hover:bg-white/5">
+                <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
                   <Download className="size-3.5" />
                 </button>
               </div>
@@ -340,7 +309,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Recent Activity Table */}
-        <div className="glass-card rounded-3xl border border-white/5 bg-white/[0.02] overflow-hidden">
+        <div className="glass-card rounded-3xl border border-white/5 bg-white/2 overflow-hidden">
           <div className="p-8 border-b border-white/5 flex items-center justify-between">
             <div className="space-y-1">
               <h3 className="text-lg font-bold text-white">Recent Visitors</h3>
@@ -349,7 +318,7 @@ export default function AdminDashboard() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
                 <Filter className="size-3.5" />
                 Filtrer par date
                 <ChevronDown className="size-3.5" />
@@ -379,7 +348,7 @@ export default function AdminDashboard() {
                 {stats.recentVisitors.map((visitor: any) => (
                   <tr
                     key={visitor.id}
-                    className="group hover:bg-white/[0.01] transition-colors"
+                    className="group bg-white/1 transition-colors"
                   >
                     <td className="px-8 py-6">
                       <p className="text-sm font-bold text-white">

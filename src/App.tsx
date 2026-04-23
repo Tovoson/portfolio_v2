@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import { useAuthStore } from "./store/useAdminStore";
+import { signInWithEmail } from "./test";
 //import { getPosts } from "./test";
 //import { trackVisit } from "./utils/addData";
 
@@ -27,6 +29,8 @@ function Portfolio() {
   useEffect(() => {
     if (!hasTracked.current) {
       //trackVisit();
+      //getPosts();
+      //signInWithEmail()
       hasTracked.current = true;
     }
   }, []);
@@ -55,13 +59,28 @@ function Portfolio() {
   );
 }
 
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const token = useAuthStore((state) => state.token)
+
+  if (!token) return <Navigate to="/login" replace />
+  return <>{children}</>
+}
+
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
+        <Route path="/admin/dashboard" 
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+            }
+        />
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
