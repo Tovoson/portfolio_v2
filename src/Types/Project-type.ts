@@ -17,7 +17,7 @@ export interface Stats {
   avgDuration: string;
   newMessages: number;
   visitsTrend: Array<{ name: string; value: number }>;
-  deviceDistribution: Array<{ name: string; value: number }>;
+deviceDistribution: Array<{ name: string; value: number }>;  
   recentVisitors: Array<{
     id: string;
     date: string;
@@ -31,11 +31,13 @@ export interface Stats {
 
 export interface Visits {
   session_id: string;
-  location: string;
-  browser: string;
+  city: string;
   page_path: string;
+  userAgent: string;
+  country: string;
   duration: number;
-  device_type: string;
-  device_name: string;
+  language: string;
+  screen: string;
+  ip: string;
   created_at: string;
 }

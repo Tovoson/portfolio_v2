@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,9 +18,8 @@ import LoadingScreen from "./components/LoadingScreen";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import { useAuthStore } from "./store/useAdminStore";
-import { signInWithEmail } from "./test";
-//import { getPosts } from "./test";
-//import { trackVisit } from "./utils/addData";
+import { getLocation } from "./utils/addVisitorData";
+import { trackVisit } from "./utils/addVisitorData";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,8 +28,8 @@ function Portfolio() {
   useEffect(() => {
     if (!hasTracked.current) {
       //trackVisit();
-      //getPosts();
-      //signInWithEmail()
+      //getLocation()
+      //fetchVisitor()
       hasTracked.current = true;
     }
   }, []);
@@ -62,7 +61,7 @@ function Portfolio() {
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const token = useAuthStore((state) => state.token)
 
-  if (!token) return <Navigate to="/login" replace />
+  if (!token) return <Navigate to="/admin" replace />
   return <>{children}</>
 }
 

@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="bg-primary/20 p-1.5 rounded-md">
             <Terminal className="text-primary size-5" />
           </div>
-          <span className="font-black text-sm uppercase tracking-widest text-white">DevExpert AI © 2026</span>
+          <span className="font-black text-sm uppercase tracking-widest text-white">Mara Tovoson © 2026</span>
         </div>
         <div className="flex gap-8">
           <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="https://github.com/Tovoson">
@@ -17,9 +17,7 @@ export default function Footer() {
           <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="#">
             <User className="size-4" /> LinkedIn
           </a>
-          <a className="text-slate-500 hover:text-primary transition-colors flex items-center gap-2" href="#">
-            <AtSign className="size-4" /> X
-          </a>
+          
         </div>
       </div>
     </footer>

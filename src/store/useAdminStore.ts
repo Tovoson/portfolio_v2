@@ -33,8 +33,6 @@ export const useAuthStore = create<AuthState>()(
             password: password
         })
 
-        console.log(data);
-
         if (error){
             set({error: error.message, isLoading: false})
             return

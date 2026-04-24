@@ -30,14 +30,24 @@ import {
 import { Stats } from "../Types/Project-type";
 import { useAuthStore } from "../store/useAdminStore";
 import { useShallow } from "zustand/shallow";
+import { useVisitorStore } from "../store/useVisitorStore";
+import { summary } from "motion/react-client";
 
 const INITIAL_STATS: Stats = {
   totalVisits: 12345,
   uniqueVisitors: 1234,
   avgDuration: "12:34",
   newMessages: 123,
-  visitsTrend: [],
-  deviceDistribution: [],
+  visitsTrend: [
+    { name: "Jan", value: 120 },
+    { name: "Feb", value: 200 },
+    { name: "Mar", value: 150 },
+    { name: "Apr", value: 340 },
+  ],
+  deviceDistribution: [
+    { name: "Mobile", value: 2 },   // 2 visitors on mobile
+    { name: "Desktop", value: 1 }
+  ],
   recentVisitors: [],
 };
 
@@ -45,14 +55,38 @@ export default function AdminDashboard() {
   const { user, signOut } = useAuthStore(
     useShallow((state) => ({ user: state.user, signOut: state.signOut }))
   )
+
+  const { visitor, isLoading, error } = useVisitorStore(
+    useShallow((state) => ({ visitor: state.visitor, isLoading: state.isLoading, error: state.error }))
+  )
+
+  const fetchVisitor = useVisitorStore(state => state.fetchVisitor)
+
   const COLORS = ["#d4af35", "#2a2a2a", "#1a1a1a"];
   const [stats, setStats] = useState(INITIAL_STATS)
   const navigate = useNavigate()
 
-  const onLogOut = () =>{
+  const onLogOut = () => {
     signOut()
     navigate("/admin")
   }
+
+  const avgDuration = () => {
+
+    if (!visitor || visitor.length === 0) return
+
+    const totalDuration = visitor?.reduce((sum, v) => sum + v.duration, 0) ?? 0
+    return (totalDuration / visitor?.length).toFixed(1)
+  }
+
+  useEffect(() => {
+    fetchVisitor()
+
+  }, [fetchVisitor])
+
+  useEffect(() => {
+    if (visitor) console.log(visitor.map(c => c.page_path));
+  }, [visitor])
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-slate-300 font-sans">
@@ -109,7 +143,7 @@ export default function AdminDashboard() {
           {[
             {
               label: "Total Visits",
-              value: stats.totalVisits.toLocaleString(),
+              value: visitor?.length | 0,
               trend: "+12%",
               icon: TrendingUp,
               color: "primary",
@@ -123,14 +157,14 @@ export default function AdminDashboard() {
             },
             {
               label: "Avg. Duration",
-              value: stats.avgDuration,
+              value: `${(avgDuration())} s`,
               trend: "-2.1%",
               icon: Clock,
               color: "primary",
             },
             {
               label: "New Messages",
-              value: stats.newMessages,
+              value: 0,
               trend: "+18%",
               icon: MessageSquare,
               color: "primary",
@@ -337,54 +371,69 @@ export default function AdminDashboard() {
             <table className="w-full text-left">
               <thead>
                 <tr className="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5">
-                  <th className="px-8 py-6">Date / Time</th>
-                  <th className="px-8 py-6">Location</th>
-                  <th className="px-8 py-6">Device / Browser</th>
-                  <th className="px-8 py-6">Page Viewed</th>
+                  <th className="px-8 py-6">City</th>
+                  <th className="px-8 py-6">Page path</th>
+                  <th className="px-8 py-6">User Agent</th>
+                  <th className="px-8 py-6">Country</th>
                   <th className="px-8 py-6">Duration</th>
+                  <th className="px-8 py-6">Language</th>
+                  <th className="px-8 py-6">Screen</th>
+                  <th className="px-8 py-6">Ip</th>
+                  <th className="px-8 py-6">Created at</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {stats.recentVisitors.map((visitor: any) => (
+                {visitor?.map((visitor: any) => (
                   <tr
                     key={visitor.id}
                     className="group bg-white/1 transition-colors"
                   >
                     <td className="px-8 py-6">
                       <p className="text-sm font-bold text-white">
-                        {visitor.date}
+                        {visitor.city}
                       </p>
-                      <p className="text-[10px] text-slate-600 mt-1">
-                        {visitor.time}
+
+                    </td>
+                    <td className="px-8 py-6">
+                      <p className="text-sm text-slate-200 mt-1">
+                        {visitor.page_path}
                       </p>
                     </td>
                     <td className="px-8 py-6">
                       <p className="text-sm text-slate-300">
-                        {visitor.location}
+                        {visitor.userAgent}
                       </p>
                     </td>
                     <td className="px-8 py-6">
-                      <div className="flex items-center gap-3">
-                        {visitor.browser.includes("Chrome") ? (
-                          <Monitor className="size-4 text-slate-500" />
-                        ) : (
-                          <Smartphone className="size-4 text-slate-500" />
-                        )}
-                        <span className="text-sm text-slate-300">
-                          {visitor.browser}
-                        </span>
-                      </div>
+                      <p className="text-sm text-slate-300">
+                        {visitor.country}
+                      </p>
                     </td>
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-lg w-fit">
                         <span className="text-[10px] font-mono text-primary">
-                          {visitor.page}
+                          {visitor.duration}
                         </span>
                       </div>
                     </td>
                     <td className="px-8 py-6">
                       <p className="text-sm text-slate-300">
-                        {visitor.duration}
+                        {visitor.language}
+                      </p>
+                    </td>
+                    <td className="px-8 py-6">
+                      <p className="text-sm text-slate-300">
+                        {visitor.screen}
+                      </p>
+                    </td>
+                    <td className="px-8 py-6">
+                      <p className="text-sm text-slate-300">
+                        {visitor.ip}
+                      </p>
+                    </td>
+                    <td className="px-8 py-6">
+                      <p className="text-sm text-slate-300">
+                        {visitor.created_at}
                       </p>
                     </td>
                   </tr>

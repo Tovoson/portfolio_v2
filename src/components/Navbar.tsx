@@ -19,7 +19,7 @@ export default function Navbar() {
           <div className="bg-primary p-2 rounded-lg">
             <Terminal className="text-white size-6" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white uppercase">DevExpert AI</span>
+          <span className="text-xl font-bold tracking-tight text-white uppercase">Mara Tovoson</span>
         </div>
 
         {/* Desktop Navigation */}

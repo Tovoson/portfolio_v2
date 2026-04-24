@@ -2,16 +2,14 @@ import { v4 as uuidv4 } from "uuid";
 import { Visits } from "../Types/Project-type";
 import supabase from "../config/supabase";
 
-const getDeviceType = (): string => {
+export const getDeviceType = (device: string): string => {
   const ua = navigator.userAgent;
-  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua))
-    return "Tablet";
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(device)) return "Tablet";
+
   if (
-    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-      ua,
-    )
-  )
-    return "Mobile";
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(device,)
+  ) return "Mobile";
+
   return "Desktop";
 };
 
@@ -23,6 +21,7 @@ const getBrowserName = (): string => {
   if (userAgent.includes("Edge")) return "Edge";
   if (userAgent.includes("Chrome")) return "Chrome";
   if (userAgent.includes("Safari")) return "Safari";
+
   return "Unknown";
 };
 
@@ -39,19 +38,34 @@ const getDeviceName = (): string => {
   return "Unknown Device";
 };
 
+export const getLocation = async () => {
+  const res = await fetch("https://ipapi.co/json/")
+  const data = await res.json()
+  console.log(data);
+  
+  return {
+    city: data.city,           // "Antananarivo"
+    country: data.country_name, // "Madagascar"
+    ip: data.ip,               // "197.x.x.x"
+  }
+}
+
 export const trackVisit = async () => {
   const sessionId = uuidv4();
   const startTime = Date.now();
+  const {city, ip, country} = await getLocation()
 
   console.log("debut du script");
   const visitorData: Visits = {
     session_id: sessionId,
     page_path: window.location.pathname,
-    browser: getBrowserName(),
-    device_type: getDeviceType(),
-    device_name: getDeviceName(),
-    location: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    userAgent: navigator.userAgent,
+    country: country,
     duration: 0,
+    language: navigator.language,
+    city: city,
+    screen: `${screen.width}x${screen.height}`,
+    ip: ip,
     created_at: new Date().toISOString(),
   };
 
