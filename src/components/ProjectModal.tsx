@@ -1,5 +1,6 @@
 import { X, ExternalLink, Github, Calendar, Layers, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { CONSTANTS } from '@/constants/Constants';
 
 interface Project {
   title: string;
@@ -27,32 +28,33 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="absolute inset-0 bg-background-dark/80 backdrop-blur-sm"
+          className={`absolute inset-0 ${CONSTANTS.BACKGROUNDS.DARK_80} backdrop-blur-sm`}
         />
         
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border border-primary/20 flex flex-col md:flex-row"
+          className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_20} flex flex-col md:flex-row`}
         >
           {/* Close Button */}
           <button 
+            type="submit"
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 bg-background-dark/50 hover:bg-primary/20 rounded-full text-white transition-colors cursor-pointer"
+            className={`absolute top-4 right-4 z-10 p-2 ${CONSTANTS.BACKGROUNDS.DARK_50} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_20} rounded-full ${CONSTANTS.TEXT.WHITE} transition-colors cursor-pointer `}
           >
-            <X className="size-6" />
+            <p className="text-[12px]">X</p>
           </button>
 
           {/* Image Section */}
           <div className="w-full md:w-1/2 h-64 md:h-auto relative">
             <img 
-              src={project.image} 
-              alt={project.title}
+              src={project?.image} 
+              alt={project?.title}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-background-dark via-transparent to-transparent md:bg-gradient-to-r" />
+            <div className="absolute inset-0 bg-linear-to-t from-background-dark/50 via-transparent to-transparent md:bg-gradient-to-r" />
           </div>
 
           {/* Content Section */}
@@ -60,39 +62,39 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="flex flex-col gap-6">
               <div className="space-y-2">
                 <div className="flex gap-2">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded bg-primary/10 text-primary">
+                  {project?.tags.map((tag, i) => (
+                    <span key={i} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${CONSTANTS.BACKGROUNDS.PRIMARY_10} ${CONSTANTS.TEXT.PRIMARY}`}>
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black text-white">{project.title}</h2>
+                <h2 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.WHITE}`}>{project?.title}</h2>
               </div>
 
               <div className="space-y-4">
-                <p className="text-slate-300 leading-relaxed">
-                  {project.longDescription || project.description}
+                <p className={`${CONSTANTS.TEXT.SLATE_300} leading-relaxed`}>
+                  {project?.longDescription || project?.description}
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="flex items-center gap-3 text-slate-400">
-                    <Calendar className="size-5 text-primary" />
-                    <span className="text-sm">{project.date || '2023 - 2024'}</span>
+                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.SLATE_400}`}>
+                    <Calendar className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
+                    <span className="text-sm">{project?.date || '2023 - 2024'}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-slate-400">
-                    <Layers className="size-5 text-primary" />
+                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.SLATE_400}`}>
+                    <Layers className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
                     <span className="text-sm">Architecture: Microservices</span>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-sm font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+                <h3 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} uppercase tracking-widest flex items-center gap-2`}>
                   <Cpu className="size-4" /> Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {(project.techStack || ['React', 'Node.js', 'PostgreSQL', 'TensorFlow']).map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-300">
+                  {(project?.techStack || ['React', 'Node.js', 'PostgreSQL', 'TensorFlow']).map((tech, i) => (
+                    <span key={i} className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-lg text-xs ${CONSTANTS.TEXT.SLATE_300}`}>
                       {tech}
                     </span>
                   ))}
@@ -100,7 +102,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
 
             <div className="flex flex-col gap-3 pt-6">
-              {project.lienProd && (
+              {project?.lienProd && (
                 <a 
                   href={project.lienProd} 
                   target="_blank" 
@@ -111,7 +113,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </a>
               )}
               <div className="flex gap-3">
-                {project.lienFrontend && (
+                {project?.lienFrontend && (
                   <a 
                     href={project.lienFrontend} 
                     target="_blank" 
@@ -121,7 +123,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     <Github className="size-4" /> Frontend
                   </a>
                 )}
-                {project.lienBackend && (
+                {project?.lienBackend && (
                   <a 
                     href={project.lienBackend} 
                     target="_blank" 

@@ -1,18 +1,19 @@
+import { CONSTANTS } from "@/constants/Constants";
 import { MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section className="py-24 bg-background-dark" id="contact">
+    <section className={`py-24 ${CONSTANTS.Dark.BACKGROUND}`} id="contact">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Contact Form Column */}
-          <div className="lg:col-span-3 glass-card p-8 md:p-12 rounded-3xl border border-white/5 bg-white/2">
+          <div className={`lg:col-span-3 glass-card ${CONSTANTS.PADDING} rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2}`}>
             <div className="space-y-6 mb-10">
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              <h2 className={`text-4xl md:text-5xl font-black ${CONSTANTS.TEXT.WHITE} leading-tight`}>
                 Let's build the <br />
                 future.
               </h2>
-              <p className="text-slate-400 max-w-md">
+              <p className={`${CONSTANTS.TEXT.SLATE_400} max-w-md`}>
                 Have a complex technical challenge? I'm ready to help you solve
                 it.
               </p>
@@ -25,7 +26,7 @@ export default function Contact() {
                     Full Name
                   </label>
                   <input
-                    className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder:text-slate-600"
+                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600}`}
                     placeholder="Name..."
                     type="text"
                   />
@@ -35,7 +36,7 @@ export default function Contact() {
                     Email Address
                   </label>
                   <input
-                    className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder:text-slate-600"
+                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600}`}
                     placeholder="email@gmail.com"
                     type="email"
                   />
@@ -46,11 +47,14 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
-                  className="w-full bg-white/3 border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder:text-slate-600 min-h-[160px] resize-none"
+                  className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600} min-h-[160px] resize-none`} 
                   placeholder="Describe your project..."
                 ></textarea>
               </div>
-              <button className="bg-primary hover:bg-primary/90 text-white h-14 rounded-xl font-bold transition-all shadow-xl shadow-primary/30 px-10 cursor-pointer">
+              <button type="submit" className={CONSTANTS.Light.PRIMARY_BTN}>
+                Send Message
+              </button>
+              <button type="submit" className={CONSTANTS.Light.SECONDARY_BTN}>
                 Send Message
               </button>
             </form>
@@ -59,16 +63,16 @@ export default function Contact() {
           {/* Info Cards Column */}
           <div className="lg:col-span-2 flex flex-col gap-8">
             {/* Location Card */}
-            <div className="glass-card p-8 rounded-3xl border border-white/5 bg-white/2 space-y-6">
+            <div className={`glass-card ${CONSTANTS.PADDING} rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2} space-y-6`}>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  <MapPin className="size-5 text-primary" />
+                <div className={`p-3 ${CONSTANTS.BACKGROUNDS.PRIMARY_10} rounded-xl`}>
+                  <MapPin className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.PRIMARY}`} />
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                     Office Location
                   </span>
-                  <p className="text-white font-bold">
+                  <p className={`${CONSTANTS.TEXT.WHITE} font-bold`}>
                     Ivato, Antananarivo, Madagascar
                   </p>
                 </div>
@@ -88,15 +92,15 @@ export default function Contact() {
             </div>
 
             {/* Direct Contact Card */}
-            <div className="glass-card p-8 rounded-3xl border border-white/5 bg-white/2 flex items-center justify-between">
+            <div className={`glass-card ${CONSTANTS.PADDING} rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2} flex items-center justify-between`}>
               <div className="space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                   Direct Contact
                 </span>
-                <p className="text-primary font-bold text-lg">+261348143958</p>
+                <p className={`${CONSTANTS.TEXT.PRIMARY} font-bold text-lg`}>+261348143958</p>
               </div>
-              <div className="p-4 border border-white/10 rounded-full hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer group">
-                <Phone className="size-5 text-slate-400 group-hover:text-primary transition-colors" />
+              <div className={`p-4 border border-white/10 rounded-full ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} hover:border-primary/30 transition-all cursor-pointer group`}>
+                <Phone className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.SLATE_400} group-hover:${CONSTANTS.TEXT.PRIMARY} transition-colors`} />
               </div>
             </div>
           </div>

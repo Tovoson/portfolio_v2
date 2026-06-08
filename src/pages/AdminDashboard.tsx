@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CONSTANTS } from '@/constants/Constants';
 import {
   TrendingUp,
   Users,
@@ -89,30 +90,30 @@ export default function AdminDashboard() {
   }, [visitor])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0b] text-slate-300 font-sans">
+    <div className={`min-h-screen ${CONSTANTS.Dark.BACKGROUND} font-sans`}>
       {/* Header */}
-      <header className="h-20 border-b border-white/5 px-8 flex items-center justify-between sticky top-0 bg-[#0a0a0b]/80 backdrop-blur-xl z-50">
+      <header className={`h-20 border-b ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} px-8 flex items-center justify-between sticky top-0 ${CONSTANTS.Dark.BACKGROUND} backdrop-blur-xl z-50`}>
         <div className="flex items-center gap-4">
           <h1 className="text-xl font-bold text-white">Dashboard Overview</h1>
-          <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-bold text-slate-500 uppercase tracking-widest border border-white/5">
+          <span className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} rounded-full text-[10px] font-bold ${CONSTANTS.TEXT.SLATE_500} uppercase tracking-widest border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5}`}>
             Live Updates
           </span>
         </div>
 
         <div className="flex items-center gap-8">
           <div className="relative hidden md:block">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-slate-600" />
+            <Search className={`absolute left-4 top-1/2 -translate-y-1/2 size-4 ${CONSTANTS.TEXT.SLATE_600}`} />
             <input
               type="text"
               placeholder="Search analytics..."
-              className="bg-white/3 border border-white/10 rounded-xl pl-12 pr-4 py-2.5 text-sm w-64 focus:border-primary outline-none transition-all"
+              className={`${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl pl-12 pr-4 py-2.5 text-sm w-64 focus:border-primary outline-none transition-all`}
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="p-2.5 bg-white/3 border border-white/10 rounded-xl hover:bg-white/5 transition-colors relative">
-              <Bell className="size-5 text-slate-400" />
-              <span className="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-[#0a0a0b]" />
+            <button className={`p-2.5 ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl ${CONSTANTS.BACKGROUNDS.HOVER_WHITE_5} transition-colors relative`}>
+              <Bell className={`size-5 ${CONSTANTS.TEXT.SLATE_400}`} />
+              <span className="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-[#0a0a0b]" />.
             </button>
 
             <div className="h-8 w-px bg-white/10 mx-2" />
@@ -120,17 +121,17 @@ export default function AdminDashboard() {
             <div className="flex items-center gap-4">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-bold text-white leading-none">
-                  {user.email}
+                  {user?.email}
                 </p>
-                <p className="text-[10px] text-slate-500 font-medium uppercase tracking-widest mt-1">
-                  {user.email}
+                <p className={`text-[10px] ${CONSTANTS.TEXT.SLATE_500} font-medium uppercase tracking-widest mt-1`}>
+                  {user?.email}
                 </p>
               </div>
               <button
                 onClick={onLogOut}
-                className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all group"
+                className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_20} flex items-center justify-center ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_20} transition-all group`}
               >
-                <LogOut className="size-5 text-primary group-hover:scale-110 transition-transform" />
+                <LogOut className={`size-5 ${CONSTANTS.TEXT.PRIMARY} group-hover:scale-110 transition-transform`} />
               </button>
             </div>
           </div>
@@ -143,7 +144,7 @@ export default function AdminDashboard() {
           {[
             {
               label: "Total Visits",
-              value: visitor?.length | 0,
+              value: visitor?.length || 0,
               trend: "+12%",
               icon: TrendingUp,
               color: "primary",
@@ -175,7 +176,7 @@ export default function AdminDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="glass-card p-6 rounded-2xl border border-white/5 bg-white/2 relative overflow-hidden group"
+              className={`glass-card p-6 rounded-2xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2} relative overflow-hidden group`}
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="space-y-1">
@@ -282,10 +283,10 @@ export default function AdminDashboard() {
               </h3>
               <div className="flex gap-2">
                 <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
-                  <Filter className="size-3.5" />
+                  <Filter className="size-3.5" />.
                 </button>
                 <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
-                  <Download className="size-3.5" />
+                  <Download className="size-3.5" />.
                 </button>
               </div>
             </div>

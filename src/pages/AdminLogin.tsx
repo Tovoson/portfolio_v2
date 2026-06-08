@@ -4,6 +4,7 @@ import { Terminal, Lock, Mail, ArrowRight, EyeIcon, EyeClosed } from 'lucide-rea
 import { motion } from 'motion/react';
 import { useAuthStore } from '../store/useAdminStore';
 import { useShallow } from 'zustand/shallow';
+import { CONSTANTS } from '@/constants/Constants';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -25,33 +26,33 @@ export default function AdminLogin() {
   }, [user])
 
   return (
-    <div className="min-h-screen bg-background-dark flex items-center justify-center p-6">
+    <div className={`min-h-screen ${CONSTANTS.Dark.BACKGROUND} flex items-center justify-center p-6`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
         <div className="flex flex-col items-center gap-6 mb-10">
-          <div className="bg-primary p-4 rounded-2xl shadow-2xl shadow-primary/20">
-            <Terminal className="text-white size-10" />
+          <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-4 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}>
+            <Terminal className={`${CONSTANTS.TEXT.WHITE} size-10`} />
           </div>
           <div className="text-center space-y-2">
-            <h1 className="text-3xl font-black text-white uppercase tracking-tighter">Admin Access</h1>
-            <p className="text-slate-500 text-sm font-medium">Secure portal for DevExpert AI systems</p>
+            <h1 className={`text-3xl font-black ${CONSTANTS.TEXT.WHITE} uppercase tracking-tighter`}>Admin Access</h1>
+            <p className={`${CONSTANTS.TEXT.SLATE_500} text-sm font-medium`}>Secure portal for DevExpert AI systems</p>
           </div>
         </div>
 
-        <div className="glass-card p-8 rounded-3xl border border-white/5 bg-white/2">
+        <div className={`glass-card p-8 rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2}`}>
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Email Address</label>
+              <label className={`text-[10px] font-bold uppercase tracking-widest ${CONSTANTS.TEXT.SLATE_500} ml-1`}>Email Address</label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-slate-600" />
+                <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 size-5 ${CONSTANTS.TEXT.SLATE_600}`} />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white/3 border border-white/10 rounded-xl pl-12 pr-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder:text-slate-700"
+                  className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl pl-12 pr-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_700}`}
                   placeholder="admin@devexpert.ai"
                   required
                 />
@@ -59,22 +60,22 @@ export default function AdminLogin() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-1">Password</label>
+              <label className={`text-[10px] font-bold uppercase tracking-widest ${CONSTANTS.TEXT.SLATE_500} ml-1`}>Password</label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-slate-600" />
+                <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 size-5 ${CONSTANTS.TEXT.SLATE_600}`} />
                 <input
                   type={isVisible ? "text": "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/3 border border-white/10 rounded-xl pl-12 pr-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder:text-slate-700"
+                  className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl pl-12 pr-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_700}`}
                   placeholder="••••••••"
                   required
                 />
                 {
                   isVisible ?
-                    <EyeIcon onClick={() =>{setIsVisible(!isVisible)}} className="absolute right-4 top-1/2 -translate-y-1/2 size-5 text-slate-600" />
+                    <EyeIcon onClick={() =>{setIsVisible(!isVisible)}} className={`absolute right-4 top-1/2 -translate-y-1/2 size-5 ${CONSTANTS.TEXT.SLATE_600}`} />
                     :
-                    <EyeClosed onClick={() =>{setIsVisible(!isVisible)}} className="absolute right-4 top-1/2 -translate-y-1/2 size-5 text-slate-600" />
+                    <EyeClosed onClick={() =>{setIsVisible(!isVisible)}} className={`absolute right-4 top-1/2 -translate-y-1/2 size-5 ${CONSTANTS.TEXT.SLATE_600}`} />
                 }
 
               </div>
@@ -84,7 +85,7 @@ export default function AdminLogin() {
               <motion.p
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-red-500 text-xs font-bold text-center bg-red-500/10 py-3 rounded-lg border border-red-500/20"
+                className={`${CONSTANTS.TEXT.RED_500} text-xs font-bold text-center ${CONSTANTS.BACKGROUNDS.RED_10} py-3 rounded-lg border ${CONSTANTS.BACKGROUNDS.BORDER_RED_20}`}
               >
                 {error}
               </motion.p>
@@ -93,7 +94,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-primary hover:bg-primary/90 disabled:opacity-50 text-white h-14 rounded-xl font-bold transition-all shadow-xl shadow-primary/30 flex items-center justify-center gap-2 group cursor-pointer"
+              className={`w-full ${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} disabled:opacity-50 ${CONSTANTS.TEXT.WHITE} h-14 rounded-xl font-bold transition-all ${CONSTANTS.BACKGROUNDS.PRIMARY_30_SHADOW} flex items-center justify-center gap-2 group cursor-pointer`}
             >
               {isLoading ? 'Authenticating...' : 'Sign In to Dashboard'}
               {!isLoading && <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />}
@@ -101,7 +102,7 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-center mt-8 text-slate-600 text-xs font-medium">
+        <p className={`text-center mt-8 ${CONSTANTS.TEXT.SLATE_600} text-xs font-medium`}>
           Authorized personnel only. All access attempts are logged.
         </p>
       </motion.div>

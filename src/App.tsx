@@ -6,6 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
+
+// Components
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Expertise from "./components/Expertise";
@@ -15,11 +17,14 @@ import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
+
+// Pages
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+
+// Store
 import { useAuthStore } from "./store/useAdminStore";
-import { getLocation } from "./utils/addVisitorData";
-import { trackVisit } from "./utils/addVisitorData";
+import { CONSTANTS } from "@/constants/Constants";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +40,7 @@ function Portfolio() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background-dark">
+    <div className={`min-h-screen ${CONSTANTS.Dark.BACKGROUND}`}>
       <AnimatePresence mode="wait">
         {isLoading ? (
           <LoadingScreen key="loader" onComplete={() => setIsLoading(false)} />
@@ -59,10 +64,10 @@ function Portfolio() {
 }
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const token = useAuthStore((state) => state.token)
+  const token = useAuthStore((state) => state.token);
 
-  if (!token) return <Navigate to="/admin" replace />
-  return <>{children}</>
+  if (!token) return <Navigate to="/admin" replace />;
+  return <>{children}</>;
 }
 
 export default function App() {
@@ -72,12 +77,13 @@ export default function App() {
         <Route path="/" element={<Portfolio />} />
         <Route path="/admin" element={<AdminLogin />} />
 
-        <Route path="/admin/dashboard" 
+        <Route
+          path="/admin/dashboard"
           element={
             <ProtectedRoute>
               <AdminDashboard />
             </ProtectedRoute>
-            }
+          }
         />
 
         <Route path="*" element={<Navigate to="/" replace />} />

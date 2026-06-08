@@ -1,3 +1,4 @@
+import { CONSTANTS } from '@/constants/Constants';
 import { GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -33,8 +34,8 @@ export default function Education() {
     <section className="py-24 relative" id="education">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 gap-4">
-          <h2 className="text-sm font-bold text-primary tracking-[0.2em] uppercase">Academic Excellence</h2>
-          <h3 className="text-3xl md:text-4xl font-black text-white">Formation & Certifications</h3>
+          <h2 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}>Academic Excellence</h2>
+          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.WHITE}`}>Formation & Certifications</h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {education.map((item, index) => (
@@ -44,23 +45,23 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-8 rounded-2xl flex flex-col gap-6 neon-border-hover transition-all group border-primary/5"
+              className={`glass-card ${CONSTANTS.PADDING} rounded-2xl flex flex-col gap-6 neon-border-hover transition-all group border-primary/5`}
             >
               <div className="flex justify-between items-start">
-                <div className="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-                  <item.icon className="size-8" />
+                <div className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}>
+                  <item.icon className={CONSTANTS.ICONS_SIZE} />
                 </div>
-                <span className="text-xs font-bold text-primary py-1 px-3 rounded-full bg-primary/10">{item.period}</span>
+                <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10}`}>{item.period}</span>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className="text-xl font-bold text-white">{item.title}</h4>
-                {item.school && <p className="text-sm font-bold text-primary/80">{item.school}</p>}
-                {item.description && <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>}
+                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.WHITE}`}>{item.title}</h4>
+                {item.school && <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY_80}`}>{item.school}</p>}
+                {item.description && <p className={`${CONSTANTS.TEXT.SLATE_400} text-sm leading-relaxed`}>{item.description}</p>}
                 {item.certs && (
                   <div className="space-y-2 mt-2">
                     {item.certs.map((cert, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm text-slate-400">
-                        <span className="size-1.5 rounded-full bg-primary"></span> {cert}
+                      <div key={i} className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.SLATE_400}`}>
+                        <span className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span> {cert}
                       </div>
                     ))}
                   </div>
