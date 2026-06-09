@@ -35,7 +35,7 @@ export default function Education() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 gap-4">
           <h2 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}>Academic Excellence</h2>
-          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.WHITE}`}>Formation & Certifications</h3>
+          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}>Formation & Certifications</h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {education.map((item, index) => (
@@ -54,13 +54,13 @@ export default function Education() {
                 <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10}`}>{item.period}</span>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.WHITE}`}>{item.title}</h4>
-                {item.school && <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY_80}`}>{item.school}</p>}
-                {item.description && <p className={`${CONSTANTS.TEXT.SLATE_400} text-sm leading-relaxed`}>{item.description}</p>}
+                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.TITLE}`}>{item.title}</h4>
+                {item.school && <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY}`}>{item.school}</p>}
+                {item.description && <p className={`${CONSTANTS.TEXT.DESCRIPTION} text-sm leading-relaxed`}>{item.description}</p>}
                 {item.certs && (
                   <div className="space-y-2 mt-2">
                     {item.certs.map((cert, i) => (
-                      <div key={i} className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.SLATE_400}`}>
+                      <div key={i} className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.DESCRIPTION}`}>
                         <span className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span> {cert}
                       </div>
                     ))}

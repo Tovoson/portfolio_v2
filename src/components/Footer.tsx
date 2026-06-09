@@ -9,13 +9,13 @@ export default function Footer() {
           <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY_20} p-1.5 rounded-md`}>
             <Terminal className={`${CONSTANTS.TEXT.PRIMARY} size-5`} />
           </div>
-          <span className={`${CONSTANTS.TEXT.WHITE} font-black text-sm uppercase tracking-widest`}>Mara Tovoson © 2026</span>
+          <span className={`${CONSTANTS.TEXT.TITLE} font-black text-sm uppercase tracking-widest`}>Mara Tovoson © 2026</span>
         </div>
         <div className="flex gap-8">
-          <a className={`${CONSTANTS.TEXT.SLATE_500} ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors flex items-center gap-2`} href="https://github.com/Tovoson">
+          <a className={`${CONSTANTS.TEXT.LABEL_TXT} ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors flex items-center gap-2`} href="https://github.com/Tovoson">
             <LinkIcon className="size-4" /> GitHub
           </a>
-          <a className={`${CONSTANTS.TEXT.SLATE_500} ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors flex items-center gap-2`} href="#">
+          <a className={`${CONSTANTS.TEXT.LABEL_TXT} ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors flex items-center gap-2`} href="#">
             <User className="size-4" /> LinkedIn
           </a>
           

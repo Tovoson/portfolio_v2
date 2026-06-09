@@ -27,15 +27,15 @@ export default function StackItems({ title, tech, defaultOpen = false }: Props) 
         className="flex w-full items-center justify-between gap-4 text-left"
       >
         <div>
-          <p className={`text-[16px] font-bold ${CONSTANTS.TEXT.PRIMARY_80}`}>
+          <p className={`text-[16px] font-bold ${CONSTANTS.TEXT.PRIMARY}`}>
             {title}
-          <span className={`mt-1 text-[14px] font-medium ${CONSTANTS.TEXT.WHITE} ml-4`}>
+          <span className={`mt-1 text-[14px] font-medium ${CONSTANTS.TEXT.TITLE} ml-4`}>
             {tech.length} items
           </span>
           </p>
         </div>
 
-        <span className={`inline-flex h-6 w-6 items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all duration-200 ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_20} hover:rounded-full`}>
+        <span className={`inline-flex h-6 w-6 items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all duration-200 ${CONSTANTS.BACKGROUNDS.BTN_STATE} hover:rounded-full`}>
           {open ? <ChevronUp className={CONSTANTS.ICONS_SIZE} /> : <ChevronDown className={CONSTANTS.ICONS_SIZE} />}
         </span>
       </button>
@@ -47,8 +47,8 @@ export default function StackItems({ title, tech, defaultOpen = false }: Props) 
               key={index}
               className={`flex flex-col items-center justify-center gap-3 rounded-2xl ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} p-4 text-center transition duration-200 hover:scale-[1.01] hover:grayscale-0 hover:shadow-lg`}
             >
-              <item.icon className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.WHITE}`} />
-              <span className={`text-xs font-bold uppercase tracking-widest ${CONSTANTS.TEXT.WHITE_80}`}>
+              <item.icon className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.TITLE}`} />
+              <span className={`text-xs font-bold uppercase tracking-widest ${CONSTANTS.TEXT.TITLE}`}>
                 {item.name}
               </span>
             </div>

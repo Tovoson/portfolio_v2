@@ -95,14 +95,14 @@ export default function AdminDashboard() {
       <header className={`h-20 border-b ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} px-8 flex items-center justify-between sticky top-0 ${CONSTANTS.Dark.BACKGROUND} backdrop-blur-xl z-50`}>
         <div className="flex items-center gap-4">
           <h1 className="text-xl font-bold text-white">Dashboard Overview</h1>
-          <span className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} rounded-full text-[10px] font-bold ${CONSTANTS.TEXT.SLATE_500} uppercase tracking-widest border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5}`}>
+          <span className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} rounded-full text-[10px] font-bold ${CONSTANTS.TEXT.LABEL_TXT} uppercase tracking-widest border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5}`}>
             Live Updates
           </span>
         </div>
 
         <div className="flex items-center gap-8">
           <div className="relative hidden md:block">
-            <Search className={`absolute left-4 top-1/2 -translate-y-1/2 size-4 ${CONSTANTS.TEXT.SLATE_600}`} />
+            <Search className={`absolute left-4 top-1/2 -translate-y-1/2 size-4 ${CONSTANTS.TEXT.ICON_COLOR_FORM}`} />
             <input
               type="text"
               placeholder="Search analytics..."
@@ -111,8 +111,8 @@ export default function AdminDashboard() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className={`p-2.5 ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl ${CONSTANTS.BACKGROUNDS.HOVER_WHITE_5} transition-colors relative`}>
-              <Bell className={`size-5 ${CONSTANTS.TEXT.SLATE_400}`} />
+            <button type="button" className={`p-2.5 ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl ${CONSTANTS.BACKGROUNDS.HOVER_WHITE_5} transition-colors relative`}>
+              <Bell className={`size-5 ${CONSTANTS.TEXT.DESCRIPTION}`} />
               <span className="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-[#0a0a0b]" />.
             </button>
 
@@ -123,13 +123,14 @@ export default function AdminDashboard() {
                 <p className="text-sm font-bold text-white leading-none">
                   {user?.email}
                 </p>
-                <p className={`text-[10px] ${CONSTANTS.TEXT.SLATE_500} font-medium uppercase tracking-widest mt-1`}>
+                <p className={`text-[10px] ${CONSTANTS.TEXT.LABEL_TXT} font-medium uppercase tracking-widest mt-1`}>
                   {user?.email}
                 </p>
               </div>
               <button
+                type="button"
                 onClick={onLogOut}
-                className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_20} flex items-center justify-center ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_20} transition-all group`}
+                className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} flex items-center justify-center ${CONSTANTS.BACKGROUNDS.BTN_STATE} transition-all group`}
               >
                 <LogOut className={`size-5 ${CONSTANTS.TEXT.PRIMARY} group-hover:scale-110 transition-transform`} />
               </button>
@@ -219,12 +220,12 @@ export default function AdminDashboard() {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
+                <button type="button" className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
                   <Filter className="size-3.5" />
                   Filtrer par date
                   <ChevronDown className="size-3.5" />
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-xl text-xs font-bold hover:bg-primary/20 transition-all">
+                <button type="button" className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-xl text-xs font-bold hover:bg-primary/20 transition-all">
                   <Download className="size-3.5" />
                   Export CSV
                 </button>
@@ -282,10 +283,10 @@ export default function AdminDashboard() {
                 Répartition par appareil
               </h3>
               <div className="flex gap-2">
-                <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
+                <button type="button" className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
                   <Filter className="size-3.5" />.
                 </button>
-                <button className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
+                <button type="button" className="p-2 bg-white/3 border border-white/10 rounded-lg hover:bg-white/5">
                   <Download className="size-3.5" />.
                 </button>
               </div>
@@ -353,16 +354,16 @@ export default function AdminDashboard() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
+              <button type="button" className="flex items-center gap-2 px-4 py-2 bg-white/3 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/5 transition-all">
                 <Filter className="size-3.5" />
                 Filtrer par date
                 <ChevronDown className="size-3.5" />
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-xl text-xs font-bold hover:bg-primary/20 transition-all">
+              <button type="button" className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-xl text-xs font-bold hover:bg-primary/20 transition-all">
                 <Download className="size-3.5" />
                 Export CSV
               </button>
-              <button className="text-xs font-bold text-primary hover:underline transition-all">
+              <button type="button" className="text-xs font-bold text-primary hover:underline transition-all">
                 View All Activity
               </button>
             </div>

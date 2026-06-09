@@ -49,7 +49,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
         }}
         className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-6 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}
       >
-        <Terminal className={`${CONSTANTS.TEXT.WHITE} size-16`} />
+        <Terminal className={`${CONSTANTS.TEXT.TITLE} size-16`} />
       </motion.div>
 
       <div className="flex flex-col items-center gap-4">
@@ -79,7 +79,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className={`${CONSTANTS.TEXT.SLATE_500} text-xs uppercase tracking-[0.3em] font-bold`}
+          className={`${CONSTANTS.TEXT.LABEL_TXT} text-xs uppercase tracking-[0.3em] font-bold`}
         >
           System Loading
         </motion.p>

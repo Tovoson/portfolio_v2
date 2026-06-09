@@ -9,11 +9,11 @@ export default function Contact() {
           {/* Contact Form Column */}
           <div className={`lg:col-span-3 glass-card ${CONSTANTS.PADDING} rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2}`}>
             <div className="space-y-6 mb-10">
-              <h2 className={`text-4xl md:text-5xl font-black ${CONSTANTS.TEXT.WHITE} leading-tight`}>
+              <h2 className={`text-4xl md:text-5xl font-black ${CONSTANTS.TEXT.TITLE} leading-tight`}>
                 Let's build the <br />
                 future.
               </h2>
-              <p className={`${CONSTANTS.TEXT.SLATE_400} max-w-md`}>
+              <p className={`${CONSTANTS.TEXT.DESCRIPTION} max-w-md`}>
                 Have a complex technical challenge? I'm ready to help you solve
                 it.
               </p>
@@ -26,7 +26,7 @@ export default function Contact() {
                     Full Name
                   </label>
                   <input
-                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600}`}
+                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border border-white/10 rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.TITLE} ${CONSTANTS.TEXT.PLACEHOLDER_MSG}`}
                     placeholder="Name..."
                     type="text"
                   />
@@ -36,7 +36,7 @@ export default function Contact() {
                     Email Address
                   </label>
                   <input
-                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600}`}
+                    className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.TITLE} ${CONSTANTS.TEXT.PLACEHOLDER_MSG}`}
                     placeholder="email@gmail.com"
                     type="email"
                   />
@@ -47,7 +47,7 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
-                  className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.WHITE} ${CONSTANTS.TEXT.PLACEHOLDER_SLATE_600} min-h-[160px] resize-none`} 
+                  className={`w-full ${CONSTANTS.BACKGROUNDS.WHITE_3} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-xl px-4 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all ${CONSTANTS.TEXT.TITLE} ${CONSTANTS.TEXT.PLACEHOLDER_MSG} min-h-[160px] resize-none`} 
                   placeholder="Describe your project..."
                 ></textarea>
               </div>
@@ -69,7 +69,7 @@ export default function Contact() {
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                     Office Location
                   </span>
-                  <p className={`${CONSTANTS.TEXT.WHITE} font-bold`}>
+                  <p className={`${CONSTANTS.TEXT.TITLE} font-bold`}>
                     Ivato, Antananarivo, Madagascar
                   </p>
                 </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                 <p className={`${CONSTANTS.TEXT.PRIMARY} font-bold text-lg`}>+261348143958</p>
               </div>
               <div className={`p-4 border border-white/10 rounded-full ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} hover:border-primary/30 transition-all cursor-pointer group`}>
-                <Phone className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.SLATE_400} group-hover:${CONSTANTS.TEXT.PRIMARY} transition-colors`} />
+                <Phone className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.DESCRIPTION} group-hover:${CONSTANTS.TEXT.PRIMARY} transition-colors`} />
               </div>
             </div>
           </div>

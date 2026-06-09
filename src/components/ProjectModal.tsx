@@ -35,13 +35,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_20} flex flex-col md:flex-row`}
+          className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} flex flex-col md:flex-row`}
         >
           {/* Close Button */}
           <button 
             type="submit"
             onClick={onClose}
-            className={`absolute top-4 right-4 z-10 p-2 ${CONSTANTS.BACKGROUNDS.DARK_50} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_20} rounded-full ${CONSTANTS.TEXT.WHITE} transition-colors cursor-pointer `}
+            className={`absolute top-4 right-4 z-10 p-2 ${CONSTANTS.BACKGROUNDS.DARK_50} ${CONSTANTS.BACKGROUNDS.BTN_STATE} rounded-full ${CONSTANTS.TEXT.TITLE} transition-colors cursor-pointer `}
           >
             <p className="text-[12px]">X</p>
           </button>
@@ -68,20 +68,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </span>
                   ))}
                 </div>
-                <h2 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.WHITE}`}>{project?.title}</h2>
+                <h2 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}>{project?.title}</h2>
               </div>
 
               <div className="space-y-4">
-                <p className={`${CONSTANTS.TEXT.SLATE_300} leading-relaxed`}>
+                <p className={`${CONSTANTS.TEXT.DESCRIPTION} leading-relaxed`}>
                   {project?.longDescription || project?.description}
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.SLATE_400}`}>
+                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.DESCRIPTION}`}>
                     <Calendar className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
                     <span className="text-sm">{project?.date || '2023 - 2024'}</span>
                   </div>
-                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.SLATE_400}`}>
+                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.DESCRIPTION}`}>
                     <Layers className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
                     <span className="text-sm">Architecture: Microservices</span>
                   </div>
@@ -94,7 +94,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {(project?.techStack || ['React', 'Node.js', 'PostgreSQL', 'TensorFlow']).map((tech, i) => (
-                    <span key={i} className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-lg text-xs ${CONSTANTS.TEXT.SLATE_300}`}>
+                    <span key={i} className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-lg text-xs ${CONSTANTS.TEXT.DESCRIPTION}`}>
                       {tech}
                     </span>
                   ))}

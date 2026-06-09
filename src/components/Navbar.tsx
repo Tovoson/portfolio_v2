@@ -18,30 +18,31 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-2 rounded-lg`}>
-            <Terminal className={`${CONSTANTS.TEXT.WHITE} size-6`} />
+            <Terminal className={`${CONSTANTS.TEXT.TITLE} size-6`} />
           </div>
-          <span className={`${CONSTANTS.TEXT.WHITE} text-xl font-bold tracking-tight uppercase`}>Mara Tovoson</span>
+          <span className={`${CONSTANTS.TEXT.TITLE} text-xl font-bold tracking-tight uppercase`}>Mara Tovoson</span>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a key={link.name} className={`${CONSTANTS.TEXT.WHITE} text-sm font-medium ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors`} href={link.href}>
+            <a key={link.name} className={`${CONSTANTS.TEXT.TITLE} text-sm font-medium ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors`} href={link.href}>
               {link.name}
             </a>
           ))}
-          <button onClick={() => window.open('/cv.pdf', '_blank')} className={`border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_40} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.WHITE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-2 cursor-pointer`}>
+          <button type="button" onClick={() => window.open('/cv.pdf', '_blank')} className={`border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-2 cursor-pointer`}>
             <Download className="size-4" />
             Download CV
           </button>
-          <a href='#contact' className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.WHITE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg ${CONSTANTS.BACKGROUNDS.PRIMARY_30_SHADOW} cursor-pointer`}>
+          <a href='#contact' className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}>
             Get in Touch
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button 
-          className={`md:hidden ${CONSTANTS.TEXT.WHITE} p-2 cursor-pointer`}
+          type="button"
+          className={`md:hidden ${CONSTANTS.TEXT.TITLE} p-2 cursor-pointer`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
@@ -61,7 +62,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
-                  className={`${CONSTANTS.TEXT.WHITE} text-lg font-medium ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors`} 
+                  className={`${CONSTANTS.TEXT.TITLE} text-lg font-medium ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors`} 
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                 >
@@ -69,11 +70,11 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
-                <button className={`w-full border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_40} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.WHITE} px-6 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer`}>
+                <button type="button" className={`w-full border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} px-6 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer`}>
                   <Download className="size-4" />
                   Download CV
                 </button>
-                <button className={`w-full ${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.WHITE} px-6 py-3 rounded-lg text-sm font-bold transition-all shadow-lg ${CONSTANTS.BACKGROUNDS.PRIMARY_30_SHADOW} cursor-pointer`}>
+                <button type="button" className={`w-full ${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-3 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}>
                   Get in Touch
                 </button>
               </div>

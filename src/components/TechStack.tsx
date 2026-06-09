@@ -37,7 +37,7 @@ export default function TechStack() {
           <h2 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}>
             The Arsenal
           </h2>
-          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.WHITE}`}>
+          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}>
             Modern Technology Stack
           </h3>
         </div>
