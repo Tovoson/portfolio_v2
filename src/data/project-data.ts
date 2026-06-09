@@ -4,6 +4,7 @@ import app_mobile from "@/assets/images/application-mobile.png"
 import zn from "@/assets/images/interface_zeronotify.png"
 import portfolio from "@/assets/images/portfolio.png"
 import smart_organizer from "@/assets/images/SO.png"
+import typing_test from "@/assets/images/typing-game.png"
 
 export const projects: Project[] = [
   {
@@ -117,7 +118,18 @@ export const projects: Project[] = [
     techStack: ["Python", "Scikit-Learn", "CustomTkinter", "Watchdog"],
     date: "2026 - Present",
     image: smart_organizer,
-    lienBackend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
     lienFrontend: "https://github.com/Tovoson/automatisation/tree/main/project_1",
+  },
+  {
+    title: "Typing Speed Test using Quote API",
+    description:
+      "A web application for testing typing speed using quotes from an API.",
+    longDescription:
+      "This application allows users to test their typing speed by typing quotes from a REST API. It features a clean, using vanilla.js (without framework), and provides real-time feedback on accuracy and speed.",
+    tags: ["Web App", "Productivity"],
+    techStack: ["HTML", "CSS", "Javascript"],
+    date: "2026",
+    image: typing_test,
+    lienFrontend: "https://github.com/Tovoson/typing-and-timer",
   },
 ];

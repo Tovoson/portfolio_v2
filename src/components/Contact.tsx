@@ -54,9 +54,6 @@ export default function Contact() {
               <button type="submit" className={CONSTANTS.Light.PRIMARY_BTN}>
                 Send Message
               </button>
-              <button type="submit" className={CONSTANTS.Light.SECONDARY_BTN}>
-                Send Message
-              </button>
             </form>
           </div>
 
