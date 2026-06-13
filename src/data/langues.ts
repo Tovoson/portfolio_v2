@@ -17,22 +17,12 @@ import nodejs from "@/assets/icons/nodedotjs.svg";
 import { projects } from "./project-data";
 
 type PropsNavBarLangue = {
-  fr: {
-    menu: {
-      name: string;
-      href: string;
-    }[];
-    btnDowload: string;
-    btnContact: string;
-  };
-  ang: {
-    menu: {
-      name: string;
-      href: string;
-    }[];
-    btnDowload: string;
-    btnContact: string;
-  };
+  menu: {
+    name: string;
+    href: string;
+  }[];
+  btnDowload: string;
+  btnContact: string;
 };
 
 type PropsHeroLanguage = {
