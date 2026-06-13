@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleProject = showAll ? projects : projects.slice(0, 4);
+  const visibleProject = showAll ? projects["fr"] : projects["fr"].slice(0, 4);
 
 
   return (
@@ -17,7 +17,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section Title */}
-        <div className="flex justify-between items-end mb-16 justify-center items-center gap-10 w-full">
+        <div className="flex mb-16 justify-center items-center gap-10 w-full">
           <div className="flex flex-col gap-4 items-center">
             <h2
               className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}

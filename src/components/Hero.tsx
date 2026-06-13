@@ -1,8 +1,28 @@
 import { ArrowRight, BarChart3 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CONSTANTS } from '@/constants/Constants';
+import { useState } from 'react';
+
+const langues = {
+  fr: {
+    title: "Disponible pour des nouveaux projets"
+  },
+  ang: {
+    title: "Available for new projects"
+  }
+} as const;
+
+type LangKey = keyof typeof langues;
+
+function getTitle(lang: LangKey){
+  return langues[lang]?.title
+}
+
 
 export default function Hero() {
+
+  const [lang, setLang] = useState<"fr"|"ang">("fr")
+
   return (
     <section className="relative min-h-screen flex items-center pt-25 pb-5 overflow-hidden hero-glow">
       <div className="absolute inset-0 z-0 opacity-30">
@@ -21,7 +41,7 @@ export default function Hero() {
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY} opacity-75`}></span>
               <span className={`relative inline-flex rounded-full h-2 w-2 ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span>
             </span>
-            <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>Available for new projects</span>
+            <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>{getTitle(lang)}</span>
           </div>
           <h1 className={`text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight ${CONSTANTS.TEXT.TITLE}`}>
             Architecting <span className={CONSTANTS.TEXT.PRIMARY}>Intelligent Systems</span> & Scalable Solutions
@@ -39,6 +59,7 @@ export default function Hero() {
               Technical Stack
               </a>
             </div>
+            <button type="button" onClick={() => setLang("fr")}>langue</button>
           </div>
         </motion.div>
         <motion.div 

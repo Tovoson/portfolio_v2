@@ -1,14 +1,14 @@
-export interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  longDescription?: string;
-  techStack?: string[];
-  date?: string;
-  lienBackend?: string;
-  lienFrontend?: string;
-  lienProd?: string;
+export type Project= {
+  title: string
+  description: string
+  longDescription: string
+  tags: string[]
+  techStack: string[]
+  date: string
+  image: string
+  lienBackend: string
+  lienFrontend: string
+  lienProd: string
 }
 
 export interface Stats {
