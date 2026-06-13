@@ -3,13 +3,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CONSTANTS } from "@/constants/Constants";
 import { navBarLangues } from "../data/langues";
+import { useLanguageStore } from "../store/useLanguageStore";
 
 type LangueKey = keyof typeof navBarLangues;
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [langue, setLangue] = useState<LangueKey>("fr");
   const [showMenu, setShowMenu] = useState(false)
+
+  const {langue, changeLanguage} = useLanguageStore()
 
   return (
     <nav
@@ -54,7 +56,7 @@ export default function Navbar() {
                   type="button"
                   className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
                   onClick={() => {
-                    setLangue("fr");
+                    changeLanguage("fr");
                     setShowMenu(false);
                   }}
                 >
@@ -64,7 +66,7 @@ export default function Navbar() {
                   type="button"
                   className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
                   onClick={() => {
-                    setLangue("ang");
+                    changeLanguage("ang");
                     setShowMenu(false);
                   }}
                 >
@@ -131,7 +133,7 @@ export default function Navbar() {
                   <select
                     value={langue}
                     onChange={(event) =>
-                      setLangue(event.target.value as LangueKey)
+                      changeLanguage(event.target.value as LangueKey)
                     }
                     className={`${CONSTANTS.TEXT.TITLE} bg-transparent outline-none cursor-pointer`}
                   >

@@ -1,27 +1,14 @@
 import { ArrowRight, BarChart3 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CONSTANTS } from '@/constants/Constants';
-import { useState } from 'react';
-
-const langues = {
-  fr: {
-    title: "Disponible pour des nouveaux projets"
-  },
-  ang: {
-    title: "Available for new projects"
-  }
-} as const;
-
-type LangKey = keyof typeof langues;
-
-function getTitle(lang: LangKey){
-  return langues[lang]?.title
-}
-
+import { heroLangues } from '../data/langues';
+import { useLanguageStore } from '../store/useLanguageStore';
 
 export default function Hero() {
 
-  const [lang, setLang] = useState<"fr"|"ang">("fr")
+  const {langue} = useLanguageStore()
+
+  const currentLangue = heroLangues[langue]
 
   return (
     <section className="relative min-h-screen flex items-center pt-25 pb-5 overflow-hidden hero-glow">
@@ -41,25 +28,23 @@ export default function Hero() {
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY} opacity-75`}></span>
               <span className={`relative inline-flex rounded-full h-2 w-2 ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span>
             </span>
-            <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>{getTitle(lang)}</span>
+            <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>{currentLangue.txt}</span>
           </div>
           <h1 className={`text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight ${CONSTANTS.TEXT.TITLE}`}>
-            Architecting <span className={CONSTANTS.TEXT.PRIMARY}>Intelligent Systems</span> & Scalable Solutions
+            {currentLangue.title}
           </h1>
           <p className={`text-lg ${CONSTANTS.TEXT.DESCRIPTION} max-w-xl leading-relaxed`}>
-            Fullstack Developer | AI Systems Engineer | Database Expert. 
-            Bridging the gap between complex data architectures, LLM orchestration, and seamless user experiences.
+           {currentLangue.description}
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#projects" className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} h-14 px-8 rounded-xl font-bold transition-all flex items-center gap-2 cursor-pointer`}>
-              View Projects <ArrowRight className="size-5" />
+              {currentLangue.btnView} <ArrowRight className="size-5" />
             </a>
             <div className={`glass-card flex items-center justify-center ${CONSTANTS.BACKGROUNDS.HOVER_WHITE_5} border h-14 px-8 rounded-xl font-bold transition-all ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} cursor-pointer`}>
               <a href="#stack">
-              Technical Stack
+              {currentLangue.btnTech}
               </a>
             </div>
-            <button type="button" onClick={() => setLang("fr")}>langue</button>
           </div>
         </motion.div>
         <motion.div 

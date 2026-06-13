@@ -15,6 +15,9 @@ import next from "@/assets/icons/nextdotjs.svg";
 import postgres from "@/assets/icons/postgresql.svg";
 import nodejs from "@/assets/icons/nodedotjs.svg";
 import { projects } from "./project-data";
+import { educationData, PropsEducation } from "../components/Education";
+
+export type languages = "fr" | "ang";
 
 type PropsNavBarLangue = {
   menu: {
@@ -81,7 +84,25 @@ type PropsStackLanguages = {
   };
 };
 
-export const navBarLangues: Record<"fr" | "ang", PropsNavBarLangue> = {
+type PropsEducationLanguages = {
+  txt: string;
+  title: string;
+  education: PropsEducation;
+};
+
+type PropsContactLanguages = {
+  title: string;
+  desc: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  msgPlaceholder: string;
+  sendBtn: string;
+  positionTxt: string;
+  numTxt: string;
+};
+
+export const navBarLangues: Record<languages, PropsNavBarLangue> = {
   fr: {
     menu: [
       {
@@ -128,7 +149,7 @@ export const navBarLangues: Record<"fr" | "ang", PropsNavBarLangue> = {
   },
 };
 
-export const heroLangues: Record<"fr" | "ang", PropsHeroLanguage> = {
+export const heroLangues: Record<languages, PropsHeroLanguage> = {
   fr: {
     txt: "Disponible pour des nouveaux projets",
     title: "Conception de systèmes intelligents et de solutions évolutives",
@@ -147,7 +168,7 @@ export const heroLangues: Record<"fr" | "ang", PropsHeroLanguage> = {
   },
 };
 
-export const expertiseLangues: Record<"fr" | "ang", PropsExpertiseLanguages> = {
+export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
   fr: {
     txt: "Expertise principale",
     title: "Spécialisation technique",
@@ -198,7 +219,7 @@ export const expertiseLangues: Record<"fr" | "ang", PropsExpertiseLanguages> = {
   },
 };
 
-export const stackLanguages: Record<"fr" | "ang", PropsStackLanguages> = {
+export const stackLanguages: Record<languages, PropsStackLanguages> = {
   fr: {
     txt: "L'Arsenal",
     title: "Technologique moderne",
@@ -415,11 +436,49 @@ export const projectsLangues = {
   fr: {
     txt: "Études de cas",
     title: "Solutions techniques",
-    projects: projects,
+    projects: projects.fr,
   },
   ang: {
     txt: "Case Studies",
     title: "Engineered Solutions",
-    projects: projects,
+    projects: projects.ang,
+  },
+};
+
+export const formationLangues: Record<languages, PropsEducationLanguages> = {
+  fr: {
+    txt: "Academic Excellence",
+    title: "Formation & Certifications",
+    education: educationData.fr,
+  },
+  ang: {
+    txt: "Academic Excellence",
+    title: "Formation & Certifications",
+    education: educationData.ang,
+  },
+};
+
+export const contactLanguages: Record<languages, PropsContactLanguages> = {
+  fr: {
+    title: "Construisons l’avenir.",
+    desc: "Vous rencontrez un défi technique complexe ? Je suis prêt à vous aider à le résoudre",
+    nameLabel: " Nom complet",
+    namePlaceholder: " Nom...",
+    emailLabel: "Adresse e-mail",
+    msgPlaceholder: "Décrivez votre projet…",
+    sendBtn: "Envoyer un message",
+    positionTxt: "Lieu de travail",
+    numTxt: "Contact direct",
+  },
+  ang: {
+    title: "Let's build thefuture.",
+    desc: "Have a complex technical challenge? I'm ready to help you solve it.",
+    nameLabel: "Full Name",
+    namePlaceholder: "Name...",
+    emailLabel: "Email Address",
+    msgPlaceholder: "Describe your project...",
+    sendBtn: "Send Message",
+    positionTxt: "Office Location",
+    numTxt: "Direct Contact",
   },
 };

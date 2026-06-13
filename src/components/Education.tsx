@@ -1,45 +1,101 @@
-import { CONSTANTS } from '@/constants/Constants';
-import { GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
-import { motion } from 'motion/react';
+import { CONSTANTS } from "@/constants/Constants";
+import { GraduationCap, BookOpen, BadgeCheck, LucideProps } from "lucide-react";
+import { motion } from "motion/react";
+import { languages } from "../data/langues";
 
-const education = [
-  {
-    icon: GraduationCap,
-    period: "2018 - 2025",
-    title: "Master II in Software Engineering & Databases",
-    school: "ENI Madagascar",
-    description: "Specialized in advanced software engineering methodologies and distributed database systems. Focused on building robust, scalable architectures for enterprise-grade applications."
-  },
-  {
-    icon: BookOpen,
-    period: "2023 - 2025",
-    title: "B.S. in Computer Science",
-    school: "ENI Madagascar",
-    description: "Core focus on Algorithms, Data Structures, and Distributed Systems."
-  },
-  {
-    icon: BadgeCheck,
-    period: "Current",
-    title: "Professional Certifications",
-    school: "",
-    certs: [
-      "AWS Certified Solutions Architect",
-      "Google Professional ML Engineer",
-    ]
-  }
-];
+export type PropsEducation = {
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
+  period: string;
+  title?: string;
+  school?: string;
+  description?: string;
+  certs?: string[];
+}[];
+
+export const educationData:Record<languages, PropsEducation>  = {
+  ang: [
+    {
+      icon: GraduationCap,
+      period: "2018 - 2025",
+      title: "Master II in Software Engineering & Databases",
+      school:
+        "National School of Computer Science in Fianarantsoa, ​​Madagascar",
+      description:
+        "Specialized in advanced software engineering methodologies and distributed database systems. Focused on building robust, scalable architectures for enterprise-grade applications.",
+      
+    },
+    {
+      icon: BookOpen,
+      period: "2023 - 2025",
+      title: "B.S. in Computer Science",
+      school:
+        "National School of Computer Science in Fianarantsoa, ​​Madagascar",
+      description:
+        "Core focus on Algorithms, Data Structures, and Distributed Systems.",
+    },
+    {
+      icon: BadgeCheck,
+      period: "Current",
+      title: "Professional Certifications",
+      school: "",
+      certs: [
+        "AWS Certified Solutions Architect",
+        "Google Professional ML Engineer",
+      ],
+    },
+  ],
+  fr: [
+    {
+      icon: GraduationCap,
+      period: "2018 - 2025",
+      title: "Master II en génie logiciel et bases de données",
+      school: "Ecole National d'informatique à Fianarantsoa, Madagascar",
+      description:
+        "Spécialisé dans les méthodologies avancées de génie logiciel et les systèmes de bases de données distribuées. Axé sur la conception d'architectures robustes et évolutives pour les applications d'entreprise.",
+    },
+    {
+      icon: BookOpen,
+      period: "2023 - 2025",
+      title: "B.S. in Computer Science",
+      school: "Ecole National d'informatique à Fianarantsoa, Madagascar",
+      description:
+        "Spécialisé en algorithmes, structures de données et systèmes distribués.",
+    },
+    {
+      icon: BadgeCheck,
+      period: "En cours",
+      title: "Certifications professionnelles",
+      school: "",
+      certs: [
+        "AWS Certified Solutions Architect",
+        "Google Professional ML Engineer",
+        "Cours d'anglais",
+      ],
+    },
+  ],
+};
 
 export default function Education() {
   return (
     <section className="py-24 relative" id="education">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 gap-4">
-          <h2 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}>Academic Excellence</h2>
-          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}>Formation & Certifications</h3>
+          <h2
+            className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}
+          >
+            Academic Excellence
+          </h2>
+          <h3
+            className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}
+          >
+            Formation & Certifications
+          </h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {education.map((item, index) => (
-            <motion.div 
+          {educationData["ang"].map((item, index) => (
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -48,20 +104,44 @@ export default function Education() {
               className={`glass-card ${CONSTANTS.PADDING} rounded-2xl flex flex-col gap-6 neon-border-hover transition-all group border-primary/5`}
             >
               <div className="flex justify-between items-start">
-                <div className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}>
+                <div
+                  className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}
+                >
                   <item.icon className={CONSTANTS.ICONS_SIZE} />
                 </div>
-                <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10}`}>{item.period}</span>
+                <span
+                  className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10}`}
+                >
+                  {item.period}
+                </span>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.TITLE}`}>{item.title}</h4>
-                {item.school && <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY}`}>{item.school}</p>}
-                {item.description && <p className={`${CONSTANTS.TEXT.DESCRIPTION} text-sm leading-relaxed`}>{item.description}</p>}
+                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.TITLE}`}>
+                  {item.title}
+                </h4>
+                {item.school && (
+                  <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY}`}>
+                    {item.school}
+                  </p>
+                )}
+                {item.description && (
+                  <p
+                    className={`${CONSTANTS.TEXT.DESCRIPTION} text-sm leading-relaxed`}
+                  >
+                    {item.description}
+                  </p>
+                )}
                 {item.certs && (
                   <div className="space-y-2 mt-2">
                     {item.certs.map((cert, i) => (
-                      <div key={i} className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.DESCRIPTION}`}>
-                        <span className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span> {cert}
+                      <div
+                        key={i}
+                        className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.DESCRIPTION}`}
+                      >
+                        <span
+                          className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}
+                        ></span>{" "}
+                        {cert}
                       </div>
                     ))}
                   </div>
