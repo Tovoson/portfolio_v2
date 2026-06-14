@@ -7,7 +7,6 @@ import { useLanguageStore } from '../store/useLanguageStore';
 export default function Hero() {
 
   const {langue} = useLanguageStore()
-
   const currentLangue = heroLangues[langue]
 
   return (
@@ -30,7 +29,7 @@ export default function Hero() {
             </span>
             <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>{currentLangue.txt}</span>
           </div>
-          <h1 className={`text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight ${CONSTANTS.TEXT.TITLE}`}>
+          <h1 className={`text-2xl lg:text-5xl font-black leading-[1.1] tracking-tight ${CONSTANTS.TEXT.TITLE}`}>
             {currentLangue.title}
           </h1>
           <p className={`text-lg ${CONSTANTS.TEXT.DESCRIPTION} max-w-xl leading-relaxed`}>

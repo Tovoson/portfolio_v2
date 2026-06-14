@@ -1,7 +1,8 @@
 import { CONSTANTS } from "@/constants/Constants";
 import { GraduationCap, BookOpen, BadgeCheck, LucideProps } from "lucide-react";
 import { motion } from "motion/react";
-import { languages } from "../data/langues";
+import { formationLangues, languages } from "../data/langues";
+import { useLanguageStore } from "../store/useLanguageStore";
 
 export type PropsEducation = {
   icon: React.ForwardRefExoticComponent<
@@ -15,7 +16,7 @@ export type PropsEducation = {
 }[];
 
 export const educationData:Record<languages, PropsEducation>  = {
-  ang: [
+  en: [
     {
       icon: GraduationCap,
       period: "2018 - 2025",
@@ -78,6 +79,10 @@ export const educationData:Record<languages, PropsEducation>  = {
 };
 
 export default function Education() {
+
+  const {langue} = useLanguageStore()
+  const currentLangue = formationLangues[langue]
+
   return (
     <section className="py-24 relative" id="education">
       <div className="max-w-7xl mx-auto px-6">
@@ -85,16 +90,16 @@ export default function Education() {
           <h2
             className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}
           >
-            Academic Excellence
+            {currentLangue.txt}
           </h2>
           <h3
             className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}
           >
-            Formation & Certifications
+            {currentLangue.title}
           </h3>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {educationData["ang"].map((item, index) => (
+          {currentLangue.education.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

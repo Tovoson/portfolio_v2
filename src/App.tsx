@@ -25,16 +25,15 @@ import AdminDashboard from "./pages/AdminDashboard";
 // Store
 import { useAuthStore } from "./store/useAdminStore";
 import { CONSTANTS } from "@/constants/Constants";
+import { useLanguageStore } from "./store/useLanguageStore";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
+  const {setShowMenu} = useLanguageStore()
 
   const hasTracked = useRef(false);
   useEffect(() => {
     if (!hasTracked.current) {
-      //trackVisit();
-      //getLocation()
-      //fetchVisitor()
       hasTracked.current = true;
     }
   }, []);
@@ -45,9 +44,9 @@ function Portfolio() {
         {isLoading ? (
           <LoadingScreen key="loader" onComplete={() => setIsLoading(false)} />
         ) : (
-          <div key="content">
+          <div key="content" >
             <Navbar />
-            <main>
+            <main onClick={() => setShowMenu(false)}>
               <Hero />
               <Expertise />
               <TechStack />

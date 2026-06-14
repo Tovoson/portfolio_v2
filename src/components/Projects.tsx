@@ -4,13 +4,16 @@ import ProjectModal from "./ProjectModal";
 import { Project } from "../Types/Project-type";
 import { projects } from "../data/project-data";
 import { CONSTANTS } from "@/constants/Constants";
+import { useLanguageStore } from "../store/useLanguageStore";
+import { projectsLangues } from "../data/langues";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const {langue} = useLanguageStore()
 
-  const visibleProject = showAll ? projects["fr"] : projects["fr"].slice(0, 4);
-
+  const currentLangue = projectsLangues[langue]
+  const visibleProject = showAll ? currentLangue.projects : currentLangue.projects.slice(0, 4);
 
   return (
     <section className="py-24" id="projects">
@@ -22,12 +25,12 @@ export default function Projects() {
             <h2
               className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}
             >
-              Case Studies
+              {currentLangue.txt}
             </h2>
             <h3
               className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}
             >
-              Engineered Solutions
+              {currentLangue.title}
             </h3>
           </div>
         </div>

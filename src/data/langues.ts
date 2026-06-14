@@ -1,23 +1,26 @@
 import { Code, Brain, Database, LucideProps } from "lucide-react";
 
 // icons
-import react from "@/assets/icons/react.svg";
-import django from "@/assets/icons/django.svg";
-import docker from "@/assets/icons/docker.svg";
-import express from "@/assets/icons/express.svg";
-import git from "@/assets/icons/git.svg";
-import github from "@/assets/icons/github.svg";
-import githubActions from "@/assets/icons/githubactions.svg";
-import java from "@/assets/icons/Java.svg";
-import mongodb from "@/assets/icons/mongodb.svg";
-import mysql from "@/assets/icons/mysql.svg";
-import next from "@/assets/icons/nextdotjs.svg";
-import postgres from "@/assets/icons/postgresql.svg";
-import nodejs from "@/assets/icons/nodedotjs.svg";
+import react from "@/assets/icons/icons8-48.png"
+import dj from "@/assets/icons/icons8-django-24.png"
+import docker from "@/assets/icons/icons8-docker-48.png"
+import exp from "@/assets/icons/icons8-express-js-50.png"
+import github from "@/assets/icons/icons8-github-50.png"
+import java from "@/assets/icons/icons8-logo-java-coffee-cup-48.png"
+import mongodb from "@/assets/icons/icons8-mongodb-24.png"
+import mysql from "@/assets/icons/icons8-mysql-48.png"
+import next from "@/assets/icons/icons8-nextjs-48.png"
+import node from "@/assets/icons/icons8-nœud-js-48.png"
+import pg from "@/assets/icons/icons8-postgresql-96.png"
+import reactNative from "@/assets/icons/icons8-react-native-64.png"
+import test from "@/assets/icons/icons8-test-chimique-96.png"
+import git from "@/assets/icons/icons8-git-96.png"
+
+
 import { projects } from "./project-data";
 import { educationData, PropsEducation } from "../components/Education";
 
-export type languages = "fr" | "ang";
+export type languages = "fr" | "en";
 
 type PropsNavBarLangue = {
   menu: {
@@ -48,40 +51,26 @@ type PropsExpertiseLanguages = {
   }[];
 };
 
+type StackItem = {
+  icon: string | null;
+  name: string;
+}[];
+
 type PropsStackLanguages = {
   txt: string;
   title: string;
+  descr: string;
   stacks: {
-    frontend: {
-      icon: string;
-      color: string;
-      name: string;
-    }[];
-    backend: {
-      icon: string;
-      color: string;
-      name: string;
-    }[];
-    bd: {
-      icon: string;
-      color: string;
-      name: string;
-    }[];
-    IA: {
-      icon: string;
-      name: string;
-    }[];
-    devops: {
-      icon: string;
-      color: string;
-      name: string;
-    }[];
-    Tools: {
-      icon: string;
-      color: string;
-      name: string;
-    }[];
-  };
+   
+    frontend: StackItem;
+    backend: StackItem;
+    IA: StackItem;
+    bd: StackItem;
+    devops: StackItem;
+    Tools: StackItem;
+  
+  }
+
 };
 
 type PropsEducationLanguages = {
@@ -125,7 +114,7 @@ export const navBarLangues: Record<languages, PropsNavBarLangue> = {
     btnDowload: "Télécharger CV",
     btnContact: "Entrer en contact",
   },
-  ang: {
+  en: {
     menu: [
       {
         name: "Expertise",
@@ -158,7 +147,7 @@ export const heroLangues: Record<languages, PropsHeroLanguage> = {
     btnView: "Voir les projets",
     btnTech: "Stack technique",
   },
-  ang: {
+  en: {
     txt: "Available for new projects",
     title: "Architecting Intelligent Systems & Scalable Solutions",
     description:
@@ -193,7 +182,7 @@ export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
       },
     ],
   },
-  ang: {
+  en: {
     txt: "Core Expertise",
     title: "Specialized Technical Focus",
     expertises: [
@@ -223,210 +212,86 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
   fr: {
     txt: "L'Arsenal",
     title: "Technologique moderne",
+    descr: "éléments",
     stacks: {
       frontend: [
-        {
-          icon: react,
-          color: "#61DAFB",
-          name: "react",
-        },
-        {
-          icon: react,
-          color: "#61DAFB",
-          name: "react-native",
-        },
-        {
-          icon: next,
-          color: "#000000",
-          name: "next.js",
-        },
+        { icon: react, name: "react" },
+        { icon: reactNative, name: "react-native" },
+        { icon: next, name: "next.js" },
       ],
       backend: [
-        {
-          icon: express,
-          color: "#000000",
-          name: "express",
-        },
-        {
-          icon: nodejs,
-          color: "#5FA04E",
-          name: "nodejs", //#5FA04E
-        },
-        {
-          icon: django,
-          color: "#092E20",
-          name: "Django", //#092E20
-        },
-        {
-          icon: java,
-          color: "#007396",
-          name: "Java",
-        },
+        { icon: exp, name: "express" },
+        { icon: node, name: "nodejs" },
+        { icon: dj, name: "Django" },
+        { icon: java, name: "Java" },
       ],
       bd: [
         {
-          icon: postgres,
-          color: "#4169E1",
+          icon: pg,
           name: "PostgreSQL",
         },
-        {
-          icon: mysql,
-          color: "#4479A1",
-          name: "MySQL",
-        },
-        {
-          icon: mongodb,
-          color: "#47A248",
-          name: "MongoDB",
-        },
+        { icon: mysql, name: "MySQL" },
+        { icon: mongodb, name: "MongoDB" },
       ],
       IA: [
-        {
-          icon: "",
-          name: "Prompt Engineering",
-        },
-        {
-          icon: "",
-          name: "RAG",
-        },
-        {
-          icon: "",
-          name: "LLM",
-        },
+        { icon: null, name: "Prompt Engineering" },
+        { icon: null, name: "RAG" },
+        { icon: null, name: "LLM" },
       ],
       devops: [
         {
-          icon: githubActions,
-          color: "#2088FF",
+          icon: github,
           name: "Github Actions",
         },
-        {
-          icon: "",
-          color: "",
-          name: "CI/CD",
-        },
+        { icon: test, name: "CI/CD" },
       ],
       Tools: [
-        {
-          icon: docker,
-          color: "#2496ED",
-          name: "Docker",
-        },
-        {
-          icon: git,
-          color: "#F03C2E",
-          name: "Git",
-        },
-        {
-          icon: github,
-          color: "#181717",
-          name: "Github",
-        },
+        { icon: docker, name: "Docker" },
+        { icon: git, name: "Git" },
+        { icon: github, name: "Github" },
       ],
     },
   },
-  ang: {
+  en: {
     txt: "The Arsenal",
     title: "Modern Technology Stack",
+    descr: "items",
     stacks: {
       frontend: [
-        {
-          icon: react,
-          color: "#61DAFB",
-          name: "react",
-        },
-        {
-          icon: react,
-          color: "#61DAFB",
-          name: "react-native",
-        },
-        {
-          icon: next,
-          color: "#000000",
-          name: "next.js",
-        },
+        { icon: react, name: "react" },
+        { icon: reactNative, name: "react-native" },
+        { icon: next, name: "next.js" },
       ],
       backend: [
-        {
-          icon: express,
-          color: "#000000",
-          name: "express",
-        },
-        {
-          icon: nodejs,
-          color: "#5FA04E",
-          name: "nodejs", //#5FA04E
-        },
-        {
-          icon: django,
-          color: "#092E20",
-          name: "Django", //#092E20
-        },
-        {
-          icon: java,
-          color: "#007396",
-          name: "Java",
-        },
+        { icon: exp, name: "express" },
+        { icon: node, name: "nodejs" },
+        { icon: dj, name: "Django" },
+        { icon: java, name: "Java" },
       ],
       bd: [
         {
-          icon: postgres,
-          color: "#4169E1",
+          icon: pg,
           name: "PostgreSQL",
         },
-        {
-          icon: mysql,
-          color: "#4479A1",
-          name: "MySQL",
-        },
-        {
-          icon: mongodb,
-          color: "#47A248",
-          name: "MongoDB",
-        },
+        { icon: mysql, name: "MySQL" },
+        { icon: mongodb, name: "MongoDB" },
       ],
       IA: [
-        {
-          icon: "",
-          name: "Prompt Engineering",
-        },
-        {
-          icon: "",
-          name: "RAG",
-        },
-        {
-          icon: "",
-          name: "LLM",
-        },
+        { icon: null, name: "Prompt Engineering" },
+        { icon: null, name: "RAG" },
+        { icon: null, name: "LLM" },
       ],
       devops: [
         {
-          icon: githubActions,
-          color: "#2088FF",
+          icon: github,
           name: "Github Actions",
         },
-        {
-          icon: "",
-          color: "",
-          name: "CI/CD",
-        },
+        { icon: test, name: "CI/CD" },
       ],
       Tools: [
-        {
-          icon: docker,
-          color: "#2496ED",
-          name: "Docker",
-        },
-        {
-          icon: git,
-          color: "#F03C2E",
-          name: "Git",
-        },
-        {
-          icon: github,
-          color: "#181717",
-          name: "Github",
-        },
+        { icon: docker, name: "Docker" },
+        { icon: git, name: "Git" },
+        { icon: github, name: "Github" },
       ],
     },
   },
@@ -438,7 +303,7 @@ export const projectsLangues = {
     title: "Solutions techniques",
     projects: projects.fr,
   },
-  ang: {
+  en: {
     txt: "Case Studies",
     title: "Engineered Solutions",
     projects: projects.ang,
@@ -447,20 +312,20 @@ export const projectsLangues = {
 
 export const formationLangues: Record<languages, PropsEducationLanguages> = {
   fr: {
-    txt: "Academic Excellence",
+    txt: "Excellence académique",
     title: "Formation & Certifications",
     education: educationData.fr,
   },
-  ang: {
+  en: {
     txt: "Academic Excellence",
     title: "Formation & Certifications",
-    education: educationData.ang,
+    education: educationData.en,
   },
 };
 
 export const contactLanguages: Record<languages, PropsContactLanguages> = {
   fr: {
-    title: "Construisons l’avenir.",
+    title: "Construisons l’avenir",
     desc: "Vous rencontrez un défi technique complexe ? Je suis prêt à vous aider à le résoudre",
     nameLabel: " Nom complet",
     namePlaceholder: " Nom...",
@@ -470,8 +335,8 @@ export const contactLanguages: Record<languages, PropsContactLanguages> = {
     positionTxt: "Lieu de travail",
     numTxt: "Contact direct",
   },
-  ang: {
-    title: "Let's build thefuture.",
+  en: {
+    title: "Let's build the future",
     desc: "Have a complex technical challenge? I'm ready to help you solve it.",
     nameLabel: "Full Name",
     namePlaceholder: "Name...",

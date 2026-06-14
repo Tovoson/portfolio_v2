@@ -5,13 +5,9 @@ import { CONSTANTS } from "@/constants/Constants";
 import { navBarLangues } from "../data/langues";
 import { useLanguageStore } from "../store/useLanguageStore";
 
-type LangueKey = keyof typeof navBarLangues;
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showMenu, setShowMenu] = useState(false)
-
-  const {langue, changeLanguage} = useLanguageStore()
+  const { langue, changeLanguage, setShowMenu, showMenu } = useLanguageStore();
 
   return (
     <nav
@@ -40,18 +36,20 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <div className="flex items-center gap-2 relative">
+          <div className="relative">
             <button
               type="button"
               className={`flex items-center gap-2 border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} rounded-lg px-3 py-2 text-sm transition-all`}
-              onClick={() => setShowMenu((current) => !current)}
+              onClick={() => setShowMenu(true)}
             >
               <Globe className="size-4" />
               <span>{langue.toUpperCase()}</span>
             </button>
 
             {showMenu && (
-              <div className={`absolute -ml-11 mt-30 w-28 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}>
+              <div
+                className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
+              >
                 <button
                   type="button"
                   className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
@@ -66,7 +64,7 @@ export default function Navbar() {
                   type="button"
                   className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
                   onClick={() => {
-                    changeLanguage("ang");
+                    changeLanguage("en");
                     setShowMenu(false);
                   }}
                 >
@@ -75,6 +73,7 @@ export default function Navbar() {
               </div>
             )}
 
+          </div>
             <button
               type="button"
               onClick={() => window.open("/cv.pdf", "_blank")}
@@ -83,7 +82,6 @@ export default function Navbar() {
               <Download className="size-4" />
               {navBarLangues[langue].btnDowload}
             </button>
-          </div>
           <a
             href="#contact"
             className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
@@ -93,13 +91,53 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          type="button"
-          className={`md:hidden ${CONSTANTS.TEXT.TITLE} p-2 cursor-pointer`}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-        </button>
+        <div className="flex flex-row md:hidden gap-2">
+          <div className="relative">
+            <button
+              type="button"
+              className={`flex items-center gap-2 border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} rounded-lg px-3 py-2 text-sm transition-all`}
+              onClick={() => setShowMenu(true)}
+            >
+              <Globe className="size-4" />
+              <span>{langue.toUpperCase()}</span>
+            </button>
+
+            {showMenu && (
+              <div
+                className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
+              >
+                <button
+                  type="button"
+                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
+                  onClick={() => {
+                    changeLanguage("fr");
+                    setShowMenu(false);
+                  }}
+                >
+                  FR
+                </button>
+                <button
+                  type="button"
+                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
+                  onClick={() => {
+                    changeLanguage("en");
+                    setShowMenu(false);
+                  }}
+                >
+                  EN
+                </button>
+              </div>
+            )}
+          </div>
+
+          <button
+            type="button"
+            className={`md:hidden ${CONSTANTS.TEXT.TITLE} p-2 cursor-pointer`}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -123,24 +161,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
-                <label
-                  className={`w-full flex items-center justify-between border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} px-4 py-3 rounded-lg text-sm transition-all`}
-                >
-                  <span className="flex items-center gap-2">
-                    <Globe className="size-4" />
-                    Language
-                  </span>
-                  <select
-                    value={langue}
-                    onChange={(event) =>
-                      changeLanguage(event.target.value as LangueKey)
-                    }
-                    className={`${CONSTANTS.TEXT.TITLE} bg-transparent outline-none cursor-pointer`}
-                  >
-                    <option value="fr">FR</option>
-                    <option value="ang">EN</option>
-                  </select>
-                </label>
+                
                 <button
                   type="button"
                   onClick={() => window.open("/cv.pdf", "_blank")}
