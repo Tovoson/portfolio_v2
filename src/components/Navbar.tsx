@@ -18,15 +18,10 @@ export default function Navbar() {
           <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-2 rounded-lg`}>
             <Terminal className={`${CONSTANTS.TEXT.TITLE} size-6`} />
           </div>
-          {/* <span
-            className={`${CONSTANTS.TEXT.TITLE} text-xl font-bold tracking-tight uppercase`}
-          >
-            Mara Tovoson
-          </span> */}
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden xl:flex  items-center gap-8">
           {navBarLangues[langue].menu.map((link) => (
             <a
               key={link.name}
@@ -50,38 +45,19 @@ export default function Navbar() {
               <div
                 className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
               >
-                <button
-                  type="button"
-                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
-                  onClick={() => {
-                    changeLanguage("fr");
-                    setShowMenu(false);
-                  }}
-                >
-                  FR
-                </button>
-                <button
-                  type="button"
-                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
-                  onClick={() => {
-                    changeLanguage("en");
-                    setShowMenu(false);
-                  }}
-                >
-                  EN
-                </button>
+                <DropDownLanguage txt={"fr"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
+                <DropDownLanguage txt={"en"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
               </div>
             )}
-
           </div>
-            <button
-              type="button"
-              onClick={() => window.open("/cv.pdf", "_blank")}
-              className={`border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-2 cursor-pointer`}
-            >
-              <Download className="size-4" />
-              {navBarLangues[langue].btnDowload}
-            </button>
+          <button
+            type="button"
+            onClick={() => window.open("/cv.pdf", "_blank")}
+            className={`border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-2 cursor-pointer`}
+          >
+            <Download className="size-4" />
+            {navBarLangues[langue].btnDowload}
+          </button>
           <a
             href="#contact"
             className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
@@ -91,7 +67,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex flex-row md:hidden gap-2">
+        <div className="flex flex-row xl:hidden gap-2">
           <div className="relative">
             <button
               type="button"
@@ -106,33 +82,16 @@ export default function Navbar() {
               <div
                 className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
               >
-                <button
-                  type="button"
-                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
-                  onClick={() => {
-                    changeLanguage("fr");
-                    setShowMenu(false);
-                  }}
-                >
-                  FR
-                </button>
-                <button
-                  type="button"
-                  className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
-                  onClick={() => {
-                    changeLanguage("en");
-                    setShowMenu(false);
-                  }}
-                >
-                  EN
-                </button>
+                
+                <DropDownLanguage txt={"fr"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
+                <DropDownLanguage txt={"en"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
               </div>
             )}
           </div>
 
           <button
             type="button"
-            className={`md:hidden ${CONSTANTS.TEXT.TITLE} p-2 cursor-pointer`}
+            className={`xl:hidden ${CONSTANTS.TEXT.TITLE} p-2 cursor-pointer`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
@@ -147,7 +106,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden ${CONSTANTS.BACKGROUNDS.DARK_95} backdrop-blur-xl border-b ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} overflow-hidden`}
+            className={`xl:hidden ${CONSTANTS.BACKGROUNDS.DARK_95} backdrop-blur-xl border-b ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} overflow-hidden`}
           >
             <div className="flex flex-col p-6 gap-6">
               {navBarLangues[langue].menu.map((link) => (
@@ -161,7 +120,6 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
-                
                 <button
                   type="button"
                   onClick={() => window.open("/cv.pdf", "_blank")}
@@ -182,5 +140,29 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </nav>
+  );
+}
+
+type DropDownProps={
+  txt: "fr" | "en";
+  changeLanguage: (lg: "fr" | "en") => void;
+  setShowMenu: (val: boolean) => void;
+}
+
+function DropDownLanguage({txt, changeLanguage, setShowMenu}: DropDownProps) {
+
+  const handleClick = () =>{
+    changeLanguage(txt);
+    setShowMenu(false);
+  }
+
+  return (
+    <button
+      type="button"
+      className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
+      onClick={() => handleClick()}
+    >
+      {txt}
+    </button>
   );
 }

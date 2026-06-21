@@ -1,4 +1,4 @@
-import { Code, Brain, Database, LucideProps } from "lucide-react";
+import { Code, Brain, Database, LucideProps, BrainCircuitIcon, Sparkles, BotMessageSquare } from "lucide-react";
 
 // icons
 import react from "@/assets/icons/icons8-48.png"
@@ -52,7 +52,7 @@ type PropsExpertiseLanguages = {
 };
 
 type StackItem = {
-  icon: string | null;
+  icon: string | undefined | React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>
   name: string;
 }[];
 
@@ -211,7 +211,7 @@ export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
 export const stackLanguages: Record<languages, PropsStackLanguages> = {
   fr: {
     txt: "L'Arsenal",
-    title: "Technologique moderne",
+    title: "Technologie moderne",
     descr: "éléments",
     stacks: {
       frontend: [
@@ -234,9 +234,9 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
         { icon: mongodb, name: "MongoDB" },
       ],
       IA: [
-        { icon: null, name: "Prompt Engineering" },
-        { icon: null, name: "RAG" },
-        { icon: null, name: "LLM" },
+        { icon: BrainCircuitIcon, name: "Prompt Engineering" },
+        { icon: Sparkles  , name: "RAG" },
+        { icon: BotMessageSquare , name: "LLM" },
       ],
       devops: [
         {
@@ -277,9 +277,9 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
         { icon: mongodb, name: "MongoDB" },
       ],
       IA: [
-        { icon: null, name: "Prompt Engineering" },
-        { icon: null, name: "RAG" },
-        { icon: null, name: "LLM" },
+        { icon: BrainCircuitIcon, name: "Prompt Engineering" },
+        { icon: Sparkles  , name: "RAG" },
+        { icon: BotMessageSquare , name: "LLM" },
       ],
       devops: [
         {
