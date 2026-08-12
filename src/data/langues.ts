@@ -217,7 +217,7 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
       frontend: [
         { icon: react, name: "react" },
         { icon: reactNative, name: "react-native" },
-        { icon: next, name: "next.js" },
+        // { icon: next, name: "next.js" },
       ],
       backend: [
         { icon: exp, name: "express" },
@@ -260,7 +260,7 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
       frontend: [
         { icon: react, name: "react" },
         { icon: reactNative, name: "react-native" },
-        { icon: next, name: "next.js" },
+        // { icon: next, name: "next.js" },
       ],
       backend: [
         { icon: exp, name: "express" },

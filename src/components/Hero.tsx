@@ -23,10 +23,10 @@ export default function Hero() {
           className="flex flex-col gap-8"
         >
           <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10} border ${CONSTANTS.BACKGROUNDS.PRIMARY_20_BORDER} w-fit`}>
-            <span className="relative flex h-2 w-2">
+            {/* <span className="relative flex h-2 w-2">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY} opacity-75`}></span>
               <span className={`relative inline-flex rounded-full h-2 w-2 ${CONSTANTS.BACKGROUNDS.PRIMARY}`}></span>
-            </span>
+            </span> */}
             <span className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-widest uppercase`}>{currentLangue.txt}</span>
           </div>
           <h1 className={`text-2xl lg:text-5xl font-black leading-[1.1] tracking-tight ${CONSTANTS.TEXT.TITLE}`}>
