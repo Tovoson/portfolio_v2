@@ -1,0 +1,32 @@
+# React Frontend Project
+
+Vite + React (TypeScript) project.
+
+## Role
+
+You are a senior React developer. Always apply modern React patterns (Functional Components, Hooks) and performance-first architecture decisions.
+
+## Code standards
+
+- Never manipulate the DOM directly. Always use React state or refs (`useRef`).
+- Keep components small, modular, and reusable. Split large files into smaller sub-components.
+- Use TypeScript strictly: define clear `interface` or `type` for component props and state. Never use `any`.
+- Handle side effects cleanly using `useEffect` with proper dependency arrays, or use specialized data-fetching hooks.
+- Manage global state efficiently (Context API or dedicated library like Zustand/Redux if present).
+- Style components consistently using the project's styling solution (e.g., Tailwind CSS, CSS Modules).
+
+## Skills
+
+Do not load any skill by default. Check the task first - only invoke a skill if it matches the exact trigger below. Never invoke a skill just because it exists.
+
+- `/architect` - before building something non-trivial with no plan yet
+- `/review` - when a feature is done and needs a production check
+- `/recover` - when something is broken and the fix isn't obvious
+- `/remember` - at the start of a new session to restore context, and at the end to save progress
+
+## Session continuity
+
+REQUIRED - do not skip, do not wait to be asked:
+
+- **First action of every session:** run `/remember restore` before doing anything else.
+- **Last action of every session:** run `/remember save` before closing.
