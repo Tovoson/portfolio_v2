@@ -7,9 +7,9 @@ const BTN = {
     "border border-gray-300 bg-transparent text-gray-800 h-14 rounded-xl font-bold transition-all hover:bg-gray-100 px-10 cursor-pointer",
 };
 
-export const CONSTANTS = {
+export const CONSTANTS = { 
   PADDING: "p-5",
-  ICONS_SIZE: "size-6",
+  contour: "border border-slate-200",
 
   Dark: {
     TITLE: "text-white",
@@ -21,18 +21,19 @@ export const CONSTANTS = {
   },
 
   Light: {
-    TITLE: "text-gray-900",
-    SUBTITLE: "text-gray-700",
-    DESCRIPTION: "text-gray-500",
-    BACKGROUND: "bg-background-light",
+    TITLE: "text-slate-900",
+    SUBTITLE: "text-slate-700",
+    DESCRIPTION: "text-slate-900",
+    BACKGROUND: "bg-slate-100",
+    HOVER: "hover:text-slate-900",
     PRIMARY_BTN: BTN.PRIMARY,
     SECONDARY_BTN: BTN.SECONDARY_LIGHT,
   },
 
   BACKGROUNDS: {
-    PRIMARY: "bg-primary",
+    
     PRIMARY_5: "bg-primary/5",
-    PRIMARY_10: "bg-primary/10",
+    CARD: "bg-white",
     PRIMARY_20: "bg-primary/20",
     PRIMARY_20_BORDER: "border-primary/20",
     PRIMARY_20_SHADOW: "shadow-lg shadow-primary/20",
@@ -61,9 +62,9 @@ export const CONSTANTS = {
   },
 
   TEXT: {
-    PRIMARY: "text-primary",
-    TITLE: "text-slate-200",
-    DESCRIPTION: "text-slate-400",
+    PRIMARY: "text-slate-600",
+    TITLE: "text-slate-700",
+    DESCRIPTION: "text-slate-500",
     LABEL_TXT: "text-slate-500",
     ICON_COLOR_FORM: "text-slate-600",
     ERROR: "text-red-500",

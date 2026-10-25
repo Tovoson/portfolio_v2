@@ -33,7 +33,7 @@ export default function AdminLogin() {
         className="w-full max-w-md"
       >
         <div className="flex flex-col items-center gap-6 mb-10">
-          <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-4 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}>
+          <div className={`${CONSTANTS.BACKGROUNDS.HOVER} p-4 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}>
             <Terminal className={`${CONSTANTS.TEXT.TITLE} size-10`} />
           </div>
           <div className="text-center space-y-2">
@@ -94,7 +94,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full ${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} disabled:opacity-50 ${CONSTANTS.TEXT.TITLE} h-14 rounded-xl font-bold transition-all flex items-center justify-center gap-2 group cursor-pointer`}
+              className={`w-full ${CONSTANTS.BACKGROUNDS.HOVER} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} disabled:opacity-50 ${CONSTANTS.TEXT.TITLE} h-14 rounded-xl font-bold transition-all flex items-center justify-center gap-2 group cursor-pointer`}
             >
               {isLoading ? 'Authenticating...' : 'Sign In to Dashboard'}
               {!isLoading && <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />}

@@ -63,7 +63,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <div className="space-y-2">
                 <div className="flex gap-2">
                   {project?.tags.map((tag, i) => (
-                    <span key={i} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${CONSTANTS.BACKGROUNDS.PRIMARY_10} ${CONSTANTS.TEXT.PRIMARY}`}>
+                    <span key={i} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${CONSTANTS.BACKGROUNDS.CARD} ${CONSTANTS.TEXT.PRIMARY}`}>
                       {tag}
                     </span>
                   ))}

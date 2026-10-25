@@ -47,7 +47,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
           repeat: Infinity,
           repeatType: "reverse"
         }}
-        className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-6 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}
+        className={`${CONSTANTS.BACKGROUNDS.HOVER} p-6 rounded-2xl ${CONSTANTS.BACKGROUNDS.PRIMARY_20_SHADOW}`}
       >
         <Terminal className={`${CONSTANTS.TEXT.TITLE} size-16`} />
       </motion.div>
@@ -62,7 +62,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
           <motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.5, repeat: Infinity }}
-            className={`inline-block w-2 h-5 ${CONSTANTS.BACKGROUNDS.PRIMARY} ml-1 align-middle`}
+            className={`inline-block w-2 h-5 ${CONSTANTS.BACKGROUNDS.HOVER} ml-1 align-middle`}
           />
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 5.5, ease: "easeInOut" }}
-            className={`h-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}
+            className={`h-full ${CONSTANTS.BACKGROUNDS.HOVER}`}
           />
         </div>
         

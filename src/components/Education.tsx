@@ -110,12 +110,12 @@ export default function Education() {
             >
               <div className="flex justify-between items-start">
                 <div
-                  className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}
+                  className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.CARD} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}
                 >
                   <item.icon className={CONSTANTS.ICONS_SIZE} />
                 </div>
                 <span
-                  className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY_10}`}
+                  className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.CARD}`}
                 >
                   {item.period}
                 </span>
@@ -144,7 +144,7 @@ export default function Education() {
                         className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.DESCRIPTION}`}
                       >
                         <span
-                          className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.PRIMARY}`}
+                          className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.HOVER}`}
                         ></span>{" "}
                         {cert}
                       </div>

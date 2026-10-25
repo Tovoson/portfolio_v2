@@ -141,9 +141,9 @@ export const navBarLangues: Record<languages, PropsNavBarLangue> = {
 export const heroLangues: Record<languages, PropsHeroLanguage> = {
   fr: {
     txt: "Disponible pour des nouveaux projets",
-    title: "Conception de systèmes intelligents et de solutions évolutives",
+    title: "Mara Tovoson",
     description:
-      "Développeur Fullstack | Ingénieur en systèmes d'IA | Expert en bases de données. Je fais le lien entre les architectures de données complexes, l'orchestration LLM et les expériences utilisateur fluides.",
+      "Développeur Fullstack | Ingénieur en systèmes d'IA | Expert en bases de données.",
     btnView: "Voir les projets",
     btnTech: "Stack technique",
   },

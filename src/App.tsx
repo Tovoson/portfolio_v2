@@ -8,7 +8,7 @@ import {
 import { AnimatePresence } from "motion/react";
 
 // Components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/TopBar";
 import Hero from "./components/Hero";
 import Expertise from "./components/Expertise";
 import TechStack from "./components/TechStack";
@@ -26,24 +26,26 @@ import AdminDashboard from "./pages/AdminDashboard";
 import { useAuthStore } from "./store/useAdminStore";
 import { CONSTANTS } from "@/constants/Constants";
 import { useLanguageStore } from "./store/useLanguageStore";
+import { Loader2 } from "lucide-react";
 
 function Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
   const {setShowMenu} = useLanguageStore()
 
-  const hasTracked = useRef(false);
-  useEffect(() => {
-    if (!hasTracked.current) {
-      hasTracked.current = true;
-    }
-  }, []);
+  // const hasTracked = useRef(false);
+  // useEffect(() => {
+  //   if (!hasTracked.current) {
+  //     hasTracked.current = true;
+  //   }
+  // }, []);
 
   return (
-    <div className={`min-h-screen ${CONSTANTS.Dark.BACKGROUND}`}>
-      <AnimatePresence mode="wait">
+    <div className={`min-h-screen ${CONSTANTS.Light.BACKGROUND}`}>
+      {/* <AnimatePresence mode="wait">
         {isLoading ? (
+       
           <LoadingScreen key="loader" onComplete={() => setIsLoading(false)} />
-        ) : (
+        ) : ( */}
           <div key="content" >
             <Navbar />
             <main onClick={() => setShowMenu(false)}>
@@ -56,8 +58,8 @@ function Portfolio() {
             </main>
             <Footer />
           </div>
-        )}
-      </AnimatePresence>
+        {/* )}
+      </AnimatePresence> */}
     </div>
   );
 }

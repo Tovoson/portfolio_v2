@@ -66,7 +66,7 @@ export default function Contact() {
             {/* Location Card */}
             <div className={`glass-card ${CONSTANTS.PADDING} rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_5} ${CONSTANTS.BACKGROUNDS.WHITE_2} space-y-6`}>
               <div className="flex items-start gap-4">
-                <div className={`p-3 ${CONSTANTS.BACKGROUNDS.PRIMARY_10} rounded-xl`}>
+                <div className={`p-3 ${CONSTANTS.BACKGROUNDS.CARD} rounded-xl`}>
                   <MapPin className={`${CONSTANTS.ICONS_SIZE} ${CONSTANTS.TEXT.PRIMARY}`} />
                 </div>
                 <div className="space-y-1">

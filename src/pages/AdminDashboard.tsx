@@ -130,7 +130,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={onLogOut}
-                className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.PRIMARY_10} border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} flex items-center justify-center ${CONSTANTS.BACKGROUNDS.BTN_STATE} transition-all group`}
+                className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.CARD} border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} flex items-center justify-center ${CONSTANTS.BACKGROUNDS.BTN_STATE} transition-all group`}
               >
                 <LogOut className={`size-5 ${CONSTANTS.TEXT.PRIMARY} group-hover:scale-110 transition-transform`} />
               </button>

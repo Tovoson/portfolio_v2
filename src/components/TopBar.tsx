@@ -11,11 +11,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 glass-card border-b ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10}`}
+      className={`fixed top-0 w-full z-50 border-b border-b-slate-200 ${CONSTANTS.Light.BACKGROUND}`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className={`${CONSTANTS.BACKGROUNDS.PRIMARY} p-2 rounded-lg`}>
+          <div className={`${CONSTANTS.Light.HOVER} p-2 rounded-lg`}>
             <Terminal className={`${CONSTANTS.TEXT.TITLE} size-6`} />
           </div>
         </div>
@@ -25,7 +25,7 @@ export default function Navbar() {
           {navBarLangues[langue].menu.map((link) => (
             <a
               key={link.name}
-              className={`${CONSTANTS.TEXT.TITLE} text-sm font-medium ${CONSTANTS.TEXT.HOVER_PRIMARY} transition-colors`}
+              className={`${CONSTANTS.TEXT.TITLE} text-sm font-medium ${CONSTANTS.Light.HOVER} transition-colors`}
               href={link.href}
             >
               {link.name}
@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               type="button"
-              className={`flex items-center gap-2 border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} rounded-lg px-3 py-2 text-sm transition-all`}
+              className={`flex text-slate-600 items-center gap-2 border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} ${CONSTANTS.TEXT.TITLE} rounded-lg px-3 py-2 text-sm transition-all`}
               onClick={() => setShowMenu(true)}
             >
               <Globe className="size-4" />
@@ -45,8 +45,16 @@ export default function Navbar() {
               <div
                 className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
               >
-                <DropDownLanguage txt={"fr"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
-                <DropDownLanguage txt={"en"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
+                <DropDownLanguage
+                  txt={"fr"}
+                  changeLanguage={changeLanguage}
+                  setShowMenu={setShowMenu}
+                />
+                <DropDownLanguage
+                  txt={"en"}
+                  changeLanguage={changeLanguage}
+                  setShowMenu={setShowMenu}
+                />
               </div>
             )}
           </div>
@@ -60,7 +68,7 @@ export default function Navbar() {
           </button>
           <a
             href="#contact"
-            className={`${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
+            className={`${CONSTANTS.Light.BACKGROUND} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
           >
             {navBarLangues[langue].btnContact}
           </a>
@@ -82,9 +90,16 @@ export default function Navbar() {
               <div
                 className={`absolute top-full left-0 mt-2 w-28 z-50 rounded-xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_10} shadow-xl`}
               >
-                
-                <DropDownLanguage txt={"fr"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
-                <DropDownLanguage txt={"en"} changeLanguage={changeLanguage} setShowMenu={setShowMenu} />
+                <DropDownLanguage
+                  txt={"fr"}
+                  changeLanguage={changeLanguage}
+                  setShowMenu={setShowMenu}
+                />
+                <DropDownLanguage
+                  txt={"en"}
+                  changeLanguage={changeLanguage}
+                  setShowMenu={setShowMenu}
+                />
               </div>
             )}
           </div>
@@ -106,7 +121,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`xl:hidden ${CONSTANTS.BACKGROUNDS.DARK_95} backdrop-blur-xl border-b ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} overflow-hidden`}
+            className={`xl:hidden ${CONSTANTS.Light.BACKGROUND} backdrop-blur-xl border-b ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} overflow-hidden`}
           >
             <div className="flex flex-col p-6 gap-6">
               {navBarLangues[langue].menu.map((link) => (
@@ -130,7 +145,7 @@ export default function Navbar() {
                 </button>
                 <button
                   type="button"
-                  className={`w-full ${CONSTANTS.BACKGROUNDS.PRIMARY} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-3 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
+                  className={`w-full ${CONSTANTS.Light.HOVER} ${CONSTANTS.BACKGROUNDS.HOVER_PRIMARY_90} ${CONSTANTS.TEXT.TITLE} px-6 py-3 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
                 >
                   {navBarLangues[langue].btnContact}
                 </button>
@@ -143,23 +158,22 @@ export default function Navbar() {
   );
 }
 
-type DropDownProps={
+type DropDownProps = {
   txt: "fr" | "en";
   changeLanguage: (lg: "fr" | "en") => void;
   setShowMenu: (val: boolean) => void;
-}
+};
 
-function DropDownLanguage({txt, changeLanguage, setShowMenu}: DropDownProps) {
-
-  const handleClick = () =>{
+function DropDownLanguage({ txt, changeLanguage, setShowMenu }: DropDownProps) {
+  const handleClick = () => {
     changeLanguage(txt);
     setShowMenu(false);
-  }
+  };
 
   return (
     <button
       type="button"
-      className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/10"
+      className="w-full text-left px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-white/10"
       onClick={() => handleClick()}
     >
       {txt}
