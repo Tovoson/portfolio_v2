@@ -31,7 +31,7 @@ export default function Expertise() {
     <section className=" relative max-w-7xl mx-auto px-6" id="expertise">
       
         <div className="flex flex-col items-center text-center mb-16 gap-4">
-          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}> {currentLangue.title} </h3>
+          <h3 className={`text-3xl md:text-4xl font-black ${CONSTANTS.Light.TITLE}`}> {currentLangue.title} </h3>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {currentLangue.expertises.map((item, index) => (
@@ -41,14 +41,14 @@ export default function Expertise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`${CONSTANTS.PADDING} ${CONSTANTS.contour} rounded-2xl flex flex-col gap-6 neon-border-hover transition-all group ${CONSTANTS.BACKGROUNDS.CARD}`}
+              className={`${CONSTANTS.PADDING} ${CONSTANTS.contour} rounded-2xl flex flex-col gap-6 transition-all group ${CONSTANTS.BACKGROUNDS.CARD}`}
             >
-              <div className={`size-10 rounded-xl ${CONSTANTS.BACKGROUNDS.CARD} ${CONSTANTS.contour} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all ${CONSTANTS.Light.HOVER}`}>
+              <div className={`size-10 rounded-xl ${CONSTANTS.contour} ${CONSTANTS.Light.DESCRIPTION} flex items-center justify-center transition-all ${CONSTANTS.Light.HOVER}`}>
                 <item.icon />
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className={`${CONSTANTS.TEXT.TITLE} text-xl font-bold`}>{item.title}</h4>
-                <p className={`${CONSTANTS.TEXT.DESCRIPTION} leading-relaxed`}>
+                <h4 className={`${CONSTANTS.Light.TITLE} text-xl font-bold`}>{item.title}</h4>
+                <p className={`${CONSTANTS.Light.DESCRIPTION} leading-relaxed`}>
                   {item.descrpiton}
                 </p>
               </div>

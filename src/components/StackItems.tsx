@@ -16,44 +16,40 @@ type Props = {
   title: string;
   tech: TechItem[];
   defaultOpen?: boolean;
-  desc: string;
+
 };
 
 export default function StackItems({
   title,
   tech,
-  desc,
+ 
   defaultOpen = false,
 }: Props) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div
-      className={`rounded-lg border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} ${CONSTANTS.BACKGROUNDS.WHITE_2} ${CONSTANTS.PADDING} shadow-black/10 transition-all duration-300`}
+      className={`rounded-lg border ${CONSTANTS.contour} ${CONSTANTS.Light.CARD} ${CONSTANTS.PADDING} shadow-black/10 transition-all duration-500`}
     >
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-4 text-left"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
       >
         <div>
-          <p className={`text-[16px] font-bold ${CONSTANTS.TEXT.PRIMARY}`}>
+          <p className={`text-[16px] font-bold ${CONSTANTS.Light.DESCRIPTION}`}>
             {title}
-            <span
-              className={`mt-1 text-[14px] font-medium ${CONSTANTS.TEXT.TITLE} ml-4`}
-            >
-              {tech.length} {desc}
-            </span>
+            
           </p>
         </div>
 
         <span
-          className={`inline-flex h-6 w-6 items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all duration-200 ${CONSTANTS.BACKGROUNDS.BTN_STATE} hover:rounded-full`}
+          className={`inline-flex h-6 w-6 items-center justify-center ${CONSTANTS.Light.DESCRIPTION} transition-all duration-200 ${CONSTANTS.Light.HOVER} hover:rounded-full`}
         >
           {open ? (
-            <ChevronUp className={CONSTANTS.ICONS_SIZE} />
+            <ChevronUp  />
           ) : (
-            <ChevronDown className={CONSTANTS.ICONS_SIZE} />
+            <ChevronDown />
           )}
         </span>
       </button>
@@ -72,7 +68,7 @@ export default function StackItems({
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center justify-center gap-3 ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} p-4 text-center transition duration-200`}
+                className={`flex flex-col items-center justify-center gap-3 ${CONSTANTS.Light.DESCRIPTION} p-4 text-center transition duration-200`}
               >
                 {Icon ? (
                   <Icon style={{ width: "32px", height: "32px" }} /> // placeholder
@@ -84,7 +80,7 @@ export default function StackItems({
                   />
                 )}
                 <span
-                  className={`text-xs font-bold uppercase tracking-widest ${CONSTANTS.TEXT.TITLE}`}
+                  className={`text-xs font-semibold uppercase tracking-widest ${CONSTANTS.Light.DESCRIPTION}`}
                 >
                   {item.name}
                 </span>

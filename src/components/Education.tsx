@@ -16,7 +16,7 @@ export type PropsEducation = {
 }[];
 
 export const educationData:Record<languages, PropsEducation>  = {
-  en: [
+  EN: [
     {
       icon: GraduationCap,
       period: "2018 - 2025",
@@ -47,7 +47,7 @@ export const educationData:Record<languages, PropsEducation>  = {
       ],
     },
   ],
-  fr: [
+  FR: [
     {
       icon: GraduationCap,
       period: "2018 - 2025",
@@ -87,13 +87,8 @@ export default function Education() {
     <section className="py-24 relative" id="education">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 gap-4">
-          <h2
-            className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} tracking-[0.2em] uppercase`}
-          >
-            {currentLangue.txt}
-          </h2>
           <h3
-            className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}
+            className={`text-3xl md:text-4xl font-black ${CONSTANTS.Light.TITLE}`}
           >
             {currentLangue.title}
           </h3>
@@ -106,32 +101,32 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`glass-card ${CONSTANTS.PADDING} rounded-2xl flex flex-col gap-6 neon-border-hover transition-all group border-primary/5`}
+              className={`${CONSTANTS.Light.CARD} border ${CONSTANTS.contour} ${CONSTANTS.PADDING} rounded-2xl flex flex-col gap-6 transition-all group`}
             >
               <div className="flex justify-between items-start">
                 <div
-                  className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.CARD} flex items-center justify-center ${CONSTANTS.TEXT.PRIMARY} transition-all group-hover:bg-primary group-hover:text-white`}
+                  className={`size-14 rounded-xl ${CONSTANTS.BACKGROUNDS.CARD} flex items-center justify-center transition-all ${CONSTANTS.Light.HOVER} ${CONSTANTS.Light.DESCRIPTION} ${CONSTANTS.contour}`}
                 >
-                  <item.icon className={CONSTANTS.ICONS_SIZE} />
+                  <item.icon />
                 </div>
                 <span
-                  className={`text-xs font-bold ${CONSTANTS.TEXT.PRIMARY} py-1 px-3 rounded-full ${CONSTANTS.BACKGROUNDS.CARD}`}
+                  className={`text-xs font-bold ${CONSTANTS.Light.DESCRIPTION} py-1 px-3 rounded-full ${CONSTANTS.Light.HOVER}`}
                 >
                   {item.period}
                 </span>
               </div>
               <div className="flex flex-col gap-3">
-                <h4 className={`text-xl font-bold ${CONSTANTS.TEXT.TITLE}`}>
+                <h4 className={`text-xl font-bold ${CONSTANTS.Light.TITLE}`}>
                   {item.title}
                 </h4>
                 {item.school && (
-                  <p className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY}`}>
+                  <p className={`text-sm font-bold ${CONSTANTS.Light.DESCRIPTION}`}>
                     {item.school}
                   </p>
                 )}
                 {item.description && (
                   <p
-                    className={`${CONSTANTS.TEXT.DESCRIPTION} text-sm leading-relaxed`}
+                    className={`${CONSTANTS.Light.DESCRIPTION} text-sm leading-relaxed`}
                   >
                     {item.description}
                   </p>
@@ -144,7 +139,7 @@ export default function Education() {
                         className={`flex items-center gap-2 text-sm ${CONSTANTS.TEXT.DESCRIPTION}`}
                       >
                         <span
-                          className={`size-1.5 rounded-full ${CONSTANTS.BACKGROUNDS.HOVER}`}
+                          className={`size-1.5 rounded-full ${CONSTANTS.Light.HOVER}`}
                         ></span>{" "}
                         {cert}
                       </div>

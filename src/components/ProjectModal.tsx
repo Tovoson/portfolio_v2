@@ -1,4 +1,4 @@
-import { X, ExternalLink, Github, Calendar, Layers, Cpu } from 'lucide-react';
+import { X, ExternalLink, Github, Calendar, Layers, Cpu, XIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONSTANTS } from '@/constants/Constants';
 
@@ -35,15 +35,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.BACKGROUNDS.BORDER_PRIMARY_10} flex flex-col md:flex-row`}
+          className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.contour} flex flex-col md:flex-row`}
         >
           {/* Close Button */}
           <button 
             type="submit"
             onClick={onClose}
-            className={`absolute top-4 right-4 z-10 p-2 ${CONSTANTS.BACKGROUNDS.DARK_50} ${CONSTANTS.BACKGROUNDS.BTN_STATE} rounded-full ${CONSTANTS.TEXT.TITLE} transition-colors cursor-pointer `}
+            className={`absolute top-4 right-4 z-10 p-2 bg-white ${CONSTANTS.Light.HOVER} rounded-full ${CONSTANTS.Light.DESCRIPTION} transition-colors cursor-pointer `}
           >
-            <p className="text-[12px]">X</p>
+            <XIcon size={12}/>
           </button>
 
           {/* Image Section */}
@@ -54,47 +54,47 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-background-dark/50 via-transparent to-transparent md:bg-gradient-to-r" />
+            <div className="absolute inset-0 bg-linear-to-t from-background-dark/50 via-transparent to-transparent md:bg-linear-to-r" />
           </div>
 
           {/* Content Section */}
-          <div className="w-full md:w-1/2 p-8 md:p-10 overflow-y-auto custom-scrollbar">
+          <div className={`w-full md:w-1/2 p-8 md:p-10 overflow-y-auto custom-scrollbar ${CONSTANTS.Light.BACKGROUND}`}>
             <div className="flex flex-col gap-6">
               <div className="space-y-2">
                 <div className="flex gap-2">
                   {project?.tags.map((tag, i) => (
-                    <span key={i} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${CONSTANTS.BACKGROUNDS.CARD} ${CONSTANTS.TEXT.PRIMARY}`}>
+                    <span key={i} className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${CONSTANTS.contour} ${CONSTANTS.Light.DESCRIPTION}`}>
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h2 className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}>{project?.title}</h2>
+                <h2 className={`text-3xl md:text-4xl font-black ${CONSTANTS.Light.TITLE}`}>{project?.title}</h2>
               </div>
 
               <div className="space-y-4">
-                <p className={`${CONSTANTS.TEXT.DESCRIPTION} leading-relaxed`}>
+                <p className={`${CONSTANTS.Light.DESCRIPTION} leading-relaxed`}>
                   {project?.longDescription || project?.description}
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.DESCRIPTION}`}>
-                    <Calendar className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
+                  <div className={`flex items-center gap-3 ${CONSTANTS.Light.DESCRIPTION}`}>
+                    <Calendar className={`size-5`} />
                     <span className="text-sm">{project?.date || '2023 - 2024'}</span>
                   </div>
-                  <div className={`flex items-center gap-3 ${CONSTANTS.TEXT.DESCRIPTION}`}>
-                    <Layers className={`size-5 ${CONSTANTS.TEXT.PRIMARY}`} />
+                  <div className={`flex items-center gap-3 ${CONSTANTS.Light.DESCRIPTION}`}>
+                    <Layers className={`size-5`} />
                     <span className="text-sm">Architecture: Microservices</span>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h3 className={`text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} uppercase tracking-widest flex items-center gap-2`}>
-                  <Cpu className="size-4" /> Tech Stack
+                <h3 className={`text-sm font-bold ${CONSTANTS.Light.TITLE} uppercase tracking-widest flex items-center gap-2`}>
+                  <Cpu className="size-4" /> Techologie utilisé(s)
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {(project?.techStack || ['React', 'Node.js', 'PostgreSQL', 'TensorFlow']).map((tech, i) => (
-                    <span key={i} className={`px-3 py-1 ${CONSTANTS.BACKGROUNDS.WHITE_5} border ${CONSTANTS.BACKGROUNDS.BORDER_WHITE_10} rounded-lg text-xs ${CONSTANTS.TEXT.DESCRIPTION}`}>
+                    <span key={i} className={`px-3 py-1 ${CONSTANTS.Light.BACKGROUND} border ${CONSTANTS.contour} rounded-lg text-xs ${CONSTANTS.Light.DESCRIPTION}`}>
                       {tech}
                     </span>
                   ))}
@@ -107,7 +107,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.lienProd} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full bg-primary hover:bg-primary/90 text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-primary/20"
+                  className={`w-full ${CONSTANTS.Light.BTN_NEUTRE} ${CONSTANTS.Light.BTN_NEUTRE_HOVER} text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-primary/20`}
                 >
                   <ExternalLink className="size-4" /> Live Demo
                 </a>
@@ -118,7 +118,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.lienFrontend} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex-1 glass-card hover:bg-white/5 border border-white/10 text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className={`flex-1 ${CONSTANTS.Light.BTN_NEUTRE} ${CONSTANTS.Light.BTN_NEUTRE_HOVER} border border-white/10 text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer`}
                   >
                     <Github className="size-4" /> Frontend
                   </a>
@@ -128,7 +128,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.lienBackend} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex-1 glass-card hover:bg-white/5 border border-white/10 text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className={`flex-1 ${CONSTANTS.Light.BTN_NEUTRE} ${CONSTANTS.Light.BTN_NEUTRE_HOVER} border border-white/10 text-white h-12 rounded-xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer`}
                   >
                     <Github className="size-4" /> Backend
                   </a>

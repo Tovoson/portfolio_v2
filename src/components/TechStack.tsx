@@ -21,7 +21,7 @@ export default function TechStack() {
     <section className={`relative max-w-7xl mx-auto px-6 py-36`} id="stack">
       <div className="flex flex-col items-center text-center mb-16 gap-4">
         <h3
-          className={`text-3xl md:text-4xl font-black ${CONSTANTS.TEXT.TITLE}`}
+          className={`text-3xl md:text-4xl font-black ${CONSTANTS.Light.TITLE}`}
         >
           {currentLangue.title}
         </h3>
@@ -31,33 +31,33 @@ export default function TechStack() {
         <StackItems
           title="Frontend"
           tech={currentLangue.stacks.frontend}
-          desc={currentLangue.descr}
+         
           defaultOpen
         />
         <StackItems
           title="Backend"
           tech={currentLangue.stacks.backend}
-          desc={currentLangue.descr}
+         
         />
         <StackItems
-          title="SGBD"
+          title="Base de données"
           tech={currentLangue.stacks.bd}
-          desc={currentLangue.descr}
+         
         />
         <StackItems
-          title="Tools"
+          title="Outils"
           tech={currentLangue.stacks.Tools}
-          desc={currentLangue.descr}
+         
         />
         <StackItems
-          title="IA"
+          title="Intelligence artificielle"
           tech={currentLangue.stacks.IA}
-          desc={currentLangue.descr}
+         
         />
         <StackItems
           title="DevOps"
           tech={currentLangue.stacks.devops}
-          desc={currentLangue.descr}
+          
         />
       </div>
     </section>

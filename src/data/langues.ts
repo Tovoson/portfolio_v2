@@ -20,7 +20,7 @@ import git from "@/assets/icons/icons8-git-96.png"
 import { projects } from "./project-data";
 import { educationData, PropsEducation } from "../components/Education";
 
-export type languages = "fr" | "en";
+export type languages = "FR" | "EN";
 
 type PropsNavBarLangue = {
   menu: {
@@ -92,7 +92,7 @@ type PropsContactLanguages = {
 };
 
 export const navBarLangues: Record<languages, PropsNavBarLangue> = {
-  fr: {
+  FR: {
     menu: [
       {
         name: "Expertise",
@@ -114,7 +114,7 @@ export const navBarLangues: Record<languages, PropsNavBarLangue> = {
     btnDowload: "Télécharger CV",
     btnContact: "Entrer en contact",
   },
-  en: {
+  EN: {
     menu: [
       {
         name: "Expertise",
@@ -139,7 +139,7 @@ export const navBarLangues: Record<languages, PropsNavBarLangue> = {
 };
 
 export const heroLangues: Record<languages, PropsHeroLanguage> = {
-  fr: {
+  FR: {
     txt: "Disponible pour des nouveaux projets",
     title: "Mara Tovoson",
     description:
@@ -147,7 +147,7 @@ export const heroLangues: Record<languages, PropsHeroLanguage> = {
     btnView: "Voir les projets",
     btnTech: "Stack technique",
   },
-  en: {
+  EN: {
     txt: "Available for new projects",
     title: "Architecting Intelligent Systems & Scalable Solutions",
     description:
@@ -158,7 +158,7 @@ export const heroLangues: Record<languages, PropsHeroLanguage> = {
 };
 
 export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
-  fr: {
+  FR: {
     txt: "Expertise principale",
     title: "Spécialisation technique",
     expertises: [
@@ -182,7 +182,7 @@ export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
       },
     ],
   },
-  en: {
+  EN: {
     txt: "Core Expertise",
     title: "Specialized Technical Focus",
     expertises: [
@@ -209,7 +209,7 @@ export const expertiseLangues: Record<languages, PropsExpertiseLanguages> = {
 };
 
 export const stackLanguages: Record<languages, PropsStackLanguages> = {
-  fr: {
+  FR: {
     txt: "L'Arsenal",
     title: "Technologie moderne",
     descr: "éléments",
@@ -252,7 +252,7 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
       ],
     },
   },
-  en: {
+  EN: {
     txt: "The Arsenal",
     title: "Modern Technology Stack",
     descr: "items",
@@ -298,12 +298,12 @@ export const stackLanguages: Record<languages, PropsStackLanguages> = {
 };
 
 export const projectsLangues = {
-  fr: {
+  FR: {
     txt: "Études de cas",
     title: "Solutions techniques",
     projects: projects.fr,
   },
-  en: {
+  EN: {
     txt: "Case Studies",
     title: "Engineered Solutions",
     projects: projects.ang,
@@ -311,20 +311,20 @@ export const projectsLangues = {
 };
 
 export const formationLangues: Record<languages, PropsEducationLanguages> = {
-  fr: {
+  FR: {
     txt: "Excellence académique",
     title: "Formation & Certifications",
-    education: educationData.fr,
+    education: educationData.FR,
   },
-  en: {
+  EN: {
     txt: "Academic Excellence",
     title: "Formation & Certifications",
-    education: educationData.en,
+    education: educationData.EN,
   },
 };
 
 export const contactLanguages: Record<languages, PropsContactLanguages> = {
-  fr: {
+  FR: {
     title: "Construisons l’avenir",
     desc: "Vous rencontrez un défi technique complexe ? Je suis prêt à vous aider à le résoudre",
     nameLabel: " Nom complet",
@@ -335,7 +335,7 @@ export const contactLanguages: Record<languages, PropsContactLanguages> = {
     positionTxt: "Lieu de travail",
     numTxt: "Contact direct",
   },
-  en: {
+  EN: {
     title: "Let's build the future",
     desc: "Have a complex technical challenge? I'm ready to help you solve it.",
     nameLabel: "Full Name",

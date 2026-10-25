@@ -21,13 +21,20 @@ export const CONSTANTS = {
   },
 
   Light: {
-    TITLE: "text-slate-900",
+    TITLE: "text-[#305CDE]",
     SUBTITLE: "text-slate-700",
-    DESCRIPTION: "text-slate-900",
+    DESCRIPTION: "text-[#325FA9]",
     BACKGROUND: "bg-slate-100",
-    HOVER: "hover:text-slate-900",
-    PRIMARY_BTN: BTN.PRIMARY,
+    HOVER: "hover:bg-[#EAF2F8]",
+    Bg_BLUE: "bg-[#E5ECF4]",
+    PRIMARY_BTN: "bg-[#0F52BA]",
+    HOVER_PRIMARY_BTN: "bg-[#305CDE]",
+    BTN_TXT: "text-white",
     SECONDARY_BTN: BTN.SECONDARY_LIGHT,
+    CARD: "bg-white",
+    BTN_NEUTRE: "bg-[#878787]",
+    BTN_NEUTRE_HOVER: "hover:bg-[#5E5E5E]",
+    PLACEHOLDER_MSG: "placeholder:text-[#325FA9]",
   },
 
   BACKGROUNDS: {
@@ -68,7 +75,6 @@ export const CONSTANTS = {
     LABEL_TXT: "text-slate-500",
     ICON_COLOR_FORM: "text-slate-600",
     ERROR: "text-red-500",
-    PLACEHOLDER_MSG: "placeholder:text-slate-600",
     PLACEHOLDER_ADMIN: "placeholder:text-slate-700",
     HOVER_PRIMARY: "hover:text-primary",
     HOVER_WHITE: "hover:text-white",

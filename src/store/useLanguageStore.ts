@@ -13,7 +13,7 @@ interface languageState {
 
 // Create store using the curried form of `create`
 export const useLanguageStore = create<languageState>()((set) => ({
-  langue: "fr",
+  langue: "FR",
   showMenu: false,
 
   changeLanguage: (lg) => {
