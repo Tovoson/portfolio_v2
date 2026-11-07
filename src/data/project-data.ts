@@ -1,5 +1,5 @@
 import { Project } from "../Types/Project-type";
-import docuchat from "../../assets/images/docuchat.png";
+import docuchat from "../../assets/images/docuchat/docuchat_1.png";
 import app_mobile from "@/assets/images/application-mobile.png";
 import zn from "@/assets/images/interface_zeronotify.png";
 import portfolio from "@/assets/images/portfolio.png";
@@ -148,7 +148,7 @@ export const projects: Record<'fr' | 'ang', Project[]> = {
     {
       title: "DocuChat",
       description:
-        "DocuChat est un système **RAG (Génération Augmentée par la Recherche)** qui vous permet d'interagir intelligemment avec vos documents. Importez vos fichiers, indexez-les dans une base de données vectorielle et discutez avec leur contenu en temps réel.",
+        "DocuChat est un système RAG (Génération Augmentée par la Recherche)** qui vous permet d'interagir intelligemment avec vos documents. Importez vos fichiers, indexez-les dans une base de données vectorielle et discutez avec leur contenu en temps réel.",
       longDescription:
         "DocuChat est un pipeline RAG complet, construit avec des technologies modernes. Il permet aux utilisateurs de télécharger des documents (PDF, TXT, DOCX, etc.), qui sont ensuite découpés en segments, intégrés à l'aide de l'API Gemini de Google et stockés dans une base de données PostgreSQL avec l'extension pgvector. Le backend, développé avec Express.js, gère le traitement des fichiers et les recherches de similarité vectorielle. Le frontend, développé avec React, offre une interface de chat fluide où les utilisateurs peuvent poser des questions sur leurs documents et recevoir des réponses instantanées et contextuelles.",
       tags: ["Ingénierie IA", "Base de données vectorielle"],
@@ -164,7 +164,7 @@ export const projects: Record<'fr' | 'ang', Project[]> = {
       image: docuchat,
       lienBackend: "https://github.com/Tovoson/docuchat_backend",
       lienFrontend: "https://github.com/Tovoson/docuchat_frontend",
-      lienProd: "https://docuchat-frontend-eight.vercel.app/",
+      lienProd: "",
     },
     {
       title: "Gestion pédagogique de ENI",
