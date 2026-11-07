@@ -29,6 +29,6 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background-dark font-sans text-slate-100 selection:bg-primary selection:text-white;
+    @apply bg-background-dark font-sans text-slate-100 selection:bg-blue-500 selection:text-white;
   }
 }

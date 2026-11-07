@@ -2,7 +2,7 @@ import { CONSTANTS } from "@/constants/Constants";
 import { MapPin, Phone } from "lucide-react";
 import { useLanguageStore } from "../store/useLanguageStore";
 import { contactLanguages } from "../data/langues";
-import Button from "./ui/Button";
+import { Btn } from "./ui/Button";
 
 export default function Contact() {
   const { langue } = useLanguageStore();
@@ -66,9 +66,9 @@ export default function Contact() {
               placeholder={contactLangue.msgPlaceholder}
             ></textarea>
           </div>
-          <Button type="submit" className={`${CONSTANTS.Light.PRIMARY_BTN} ${CONSTANTS.Light.HOVER_PRIMARY_BTN} ${CONSTANTS.Light.BTN_TXT} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}>
+          <Btn type="submit" className={`${CONSTANTS.Light.PRIMARY_BTN} ${CONSTANTS.Light.HOVER_PRIMARY_BTN} ${CONSTANTS.Light.BTN_TXT} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}>
             {contactLangue.sendBtn}
-          </Button>
+          </Btn>
         </form>
       </div>
 

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { CONSTANTS } from "@/constants/Constants";
 import { navBarLangues } from "../data/langues";
 import { useLanguageStore } from "../store/useLanguageStore";
+import { Btn } from "./ui/Button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,14 +33,13 @@ export default function Navbar() {
             </a>
           ))}
           <div className="relative">
-            <button
-              type="button"
+            <Btn
               className={`flex items-center gap-2 border ${CONSTANTS.Light.HOVER} ${CONSTANTS.contour} ${CONSTANTS.Light.DESCRIPTION} rounded-lg px-3 py-2 text-sm transition-all`}
               onClick={() => setShowMenu(true)}
             >
               <Globe className="size-4" />
               <span>{langue.toUpperCase()}</span>
-            </button>
+            </Btn>
 
             {showMenu && (
               <div
@@ -58,14 +58,13 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          <button
-            type="button"
+          <Btn
             onClick={() => window.open("/cv.pdf", "_blank")}
             className={`border ${CONSTANTS.contour} ${CONSTANTS.Light.BACKGROUND} ${CONSTANTS.Light.HOVER} ${CONSTANTS.Light.DESCRIPTION} px-6 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center gap-2 cursor-pointer`}
           >
             <Download className="size-4" />
             {navBarLangues[langue].btnDowload}
-          </button>
+          </Btn>
           <a
             href="#contact"
             className={`${CONSTANTS.Light.PRIMARY_BTN} ${CONSTANTS.Light.HOVER_PRIMARY_BTN} ${CONSTANTS.Light.BTN_TXT} px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
@@ -74,17 +73,16 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Btn */}
         <div className="flex flex-row xl:hidden gap-2">
           <div className="relative">
-            <button
-              type="button"
+            <Btn
               className={`flex items-center gap-2 border ${CONSTANTS.contour} ${CONSTANTS.Light.HOVER} ${CONSTANTS.Light.DESCRIPTION} rounded-lg px-3 py-2 text-sm transition-all`}
               onClick={() => setShowMenu(true)}
             >
               <Globe className="size-4" />
               <span>{langue.toUpperCase()}</span>
-            </button>
+            </Btn>
 
             {showMenu && (
               <div
@@ -104,13 +102,12 @@ export default function Navbar() {
             )}
           </div>
 
-          <button
-            type="button"
+          <Btn
             className={`xl:hidden ${CONSTANTS.Light.DESCRIPTION} p-2 cursor-pointer`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-          </button>
+          </Btn>
         </div>
       </div>
 
@@ -135,20 +132,18 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
-                <button
-                  type="button"
+                <Btn
                   onClick={() => window.open("/cv.pdf", "_blank")}
                   className={`w-full border ${CONSTANTS.contour} ${CONSTANTS.Light.HOVER} ${CONSTANTS.Light.DESCRIPTION} px-6 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer`}
                 >
                   <Download className="size-4" />
                   {navBarLangues[langue].btnDowload}
-                </button>
-                <button
-                  type="button"
+                </Btn>
+                <Btn
                   className={`w-full ${CONSTANTS.Light.HOVER_PRIMARY_BTN} ${CONSTANTS.Light.PRIMARY_BTN} ${CONSTANTS.Light.BTN_TXT} px-6 py-3 rounded-lg text-sm font-bold transition-all shadow-lg cursor-pointer`}
                 >
                   {navBarLangues[langue].btnContact}
-                </button>
+                </Btn>
               </div>
             </div>
           </motion.div>
@@ -171,12 +166,11 @@ function DropDownLanguage({ txt, changeLanguage, setShowMenu }: DropDownProps) {
   };
 
   return (
-    <button
-      type="button"
+    <Btn
       className={`w-full text-left px-4 py-2 text-sm transition-colors  ${CONSTANTS.Light.HOVER} ${CONSTANTS.Light.DESCRIPTION}`}
       onClick={() => handleClick()}
     >
       {txt}
-    </button>
+    </Btn>
   );
 }

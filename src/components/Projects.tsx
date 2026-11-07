@@ -6,6 +6,7 @@ import { projects } from "../data/project-data";
 import { CONSTANTS } from "@/constants/Constants";
 import { useLanguageStore } from "../store/useLanguageStore";
 import { projectsLangues } from "../data/langues";
+import { Btn } from "./ui/Button";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -86,13 +87,13 @@ export default function Projects() {
             ))}
           </div>
           <div className="flex justify-center">
-            <button
-              type="button"
+            <Btn
+             
               className={`flex md:block text-sm font-bold ${CONSTANTS.TEXT.PRIMARY} hover:underline transition-all cursor-pointer`}
               onClick={() => setShowAll(!showAll)}
             >
               {showAll ? "Show Less" : "Show More"}
-            </button>
+            </Btn>
           </div>
         </div>
       </div>

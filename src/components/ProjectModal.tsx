@@ -1,6 +1,7 @@
 import { X, ExternalLink, Github, Calendar, Layers, Cpu, XIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONSTANTS } from '@/constants/Constants';
+import { Btn } from './ui/Button';
 
 interface Project {
   title: string;
@@ -37,14 +38,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           className={`relative w-full max-w-4xl max-h-[90vh] overflow-hidden glass-card rounded-3xl border ${CONSTANTS.contour} flex flex-col md:flex-row`}
         >
-          {/* Close Button */}
-          <button 
+          {/* Close Btn */}
+          <Btn 
             type="submit"
             onClick={onClose}
             className={`absolute top-4 right-4 z-10 p-2 bg-white ${CONSTANTS.Light.HOVER} rounded-full ${CONSTANTS.Light.DESCRIPTION} transition-colors cursor-pointer `}
           >
             <XIcon size={12}/>
-          </button>
+          </Btn>
 
           {/* Image Section */}
           <div className="w-full md:w-1/2 h-64 md:h-auto relative">

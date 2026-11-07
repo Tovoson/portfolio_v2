@@ -16,79 +16,33 @@ import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import LoadingScreen from "./components/LoadingScreen";
 
-// Pages
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
-
-// Store
-import { useAuthStore } from "./store/useAdminStore";
 import { CONSTANTS } from "@/constants/Constants";
 import { useLanguageStore } from "./store/useLanguageStore";
-import { Loader2 } from "lucide-react";
 
 function Portfolio() {
-  const [isLoading, setIsLoading] = useState(true);
-  const {setShowMenu} = useLanguageStore()
-
-  // const hasTracked = useRef(false);
-  // useEffect(() => {
-  //   if (!hasTracked.current) {
-  //     hasTracked.current = true;
-  //   }
-  // }, []);
+  const { setShowMenu } = useLanguageStore();
 
   return (
     <div className={`min-h-screen ${CONSTANTS.Light.BACKGROUND}`}>
-      {/* <AnimatePresence mode="wait">
-        {isLoading ? (
-       
-          <LoadingScreen key="loader" onComplete={() => setIsLoading(false)} />
-        ) : ( */}
-          <div key="content" >
-            <Navbar />
-            <main onClick={() => setShowMenu(false)}>
-              <Hero />
-              <Expertise />
-              <TechStack />
-              <Projects />
-              <Education />
-              <Contact />
-            </main>
-            <Footer />
-          </div>
-        {/* )}
-      </AnimatePresence> */}
+      <div key="content">
+        <Navbar />
+        <main onClick={() => setShowMenu(false)}>
+          <Hero />
+          <Expertise />
+          <TechStack />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const token = useAuthStore((state) => state.token);
-
-  if (!token) return <Navigate to="/admin" replace />;
-  return <>{children}</>;
-}
-
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/admin" element={<AdminLogin />} />
-
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+    <Portfolio />
   );
 }

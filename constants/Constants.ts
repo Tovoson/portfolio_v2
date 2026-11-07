@@ -46,7 +46,7 @@ export const CONSTANTS = {
     PRIMARY_20_SHADOW: "shadow-lg shadow-primary/20",
     PRIMARY_90: "bg-primary/90",
     HOVER_PRIMARY_10: "hover:bg-primary/10",
-    BTN_STATE: "hover:bg-primary/20", // Used for buttons and interactive elements (X, icons, etc.)
+    BTN_STATE: "hover:bg-primary/20", // Used for Btns and interactive elements (X, icons, etc.)
     HOVER_PRIMARY_90: "hover:bg-primary/90",
     HOVER_WHITE_5: "hover:bg-white/5",
     BORDER_PRIMARY_10: "border-primary/10", // Used for borders around cards, modals, etc.

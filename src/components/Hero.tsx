@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { CONSTANTS } from "@/constants/Constants";
 import { heroLangues } from "../data/langues";
 import { useLanguageStore } from "../store/useLanguageStore";
-import Button from "./ui/Button";
+import { Btn } from "./ui/Button";
 
 export default function Hero() {
   const { langue } = useLanguageStore();
@@ -31,12 +31,12 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-wrap gap-4">
-        <Button className={`${CONSTANTS.Light.DESCRIPTION} rounded-2xl`}>
+        <Btn className={`${CONSTANTS.Light.DESCRIPTION} rounded-2xl`}>
           <a href="">
             {" "}
             <ArrowDown />{" "}
           </a>
-        </Button>
+        </Btn>
       </div>
     </motion.section>
   );

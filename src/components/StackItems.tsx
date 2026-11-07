@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, LucideProps } from "lucide-react";
 import { CONSTANTS } from "@/constants/Constants";
+import { Btn } from "./ui/Button";
 
 type TechItem = {
   icon:
@@ -31,8 +32,8 @@ export default function StackItems({
     <div
       className={`rounded-lg border ${CONSTANTS.contour} ${CONSTANTS.Light.CARD} ${CONSTANTS.PADDING} shadow-black/10 transition-all duration-500`}
     >
-      <button
-        type="button"
+      <Btn
+       
         onClick={() => setOpen((prev) => !prev)}
         className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
       >
@@ -52,7 +53,7 @@ export default function StackItems({
             <ChevronDown />
           )}
         </span>
-      </button>
+      </Btn>
 
       <div className={`${open ? "mt-6 grid gap-4" : "hidden"}`}>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
